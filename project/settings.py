@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'doctor',
     'patient',
     'pharmacy',
+    'insurance'
 ]
 
 MIDDLEWARE = [
