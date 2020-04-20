@@ -34,3 +34,7 @@ def disease_records_view(request):
     return render(request, 'patient/disease_records.html', {'records': records})
 
 
+def contact_us_view(request):
+    return render(request, 'patient/contact_us.html')
+
+
