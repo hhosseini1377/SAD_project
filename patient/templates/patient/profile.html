@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <p>salam</p>
-</body>
-</html>
+{% extends 'patient/base_layout.html' %}
+
+{% block content %}
+
+    <h1 style="text-align:right; padding-right: 10px" >پروفایل شما</h1>
+    <div class = "profile" style="padding-right: 10px">
+        <p style="text-align: right"> نام: {{ patient.first_name }}</p>
+        <p style="text-align: right"> نام خانوادگی: {{ patient.last_name }}</p>
+        <p style="text-align: right"> {{ patient.email }} :آدرس ایمیل </p>
+        <p style="text-align: right">شماره تلفن: {{ patient.phone_number }}</p>
+        <p style="text-align: right">شماره موبایل: {{ patient.mobile_number }} </p>
+    </div>
+
+{% endblock %}

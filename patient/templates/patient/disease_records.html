@@ -1,0 +1,16 @@
+{% extends 'patient/base_layout.html' %}
+
+{% block content %}
+
+    <h1 style="text-align:right; padding-right: 10px" >سوابق بیماری</h1>
+    <div class = "profile" style="padding-right: 10px; text-align: right">
+        <ul >
+            {% for record in records %}
+                <li >
+                    {{record}}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
