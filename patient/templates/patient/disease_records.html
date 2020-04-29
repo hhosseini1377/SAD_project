@@ -2,11 +2,11 @@
 
 {% block content %}
 
-    <h1 style="text-align:right; padding-right: 10px" >سوابق بیماری</h1>
-    <div class = "profile" style="padding-right: 10px; text-align: right">
-        <ul >
+    <div class = "disease_records" style="padding-right: 10px; text-align: right;padding-top: 20px;">
+        <ul class = "list-group">
+            <li class="list-group-item active">سوابق بیماری</li>
             {% for record in records %}
-                <li >
+                <li class="list-group-item">
                     {{record}}
                 </li>
             {% endfor %}

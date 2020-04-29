@@ -21,6 +21,8 @@ def login_view(request):
 
 
 def logout_view(request):
+    if not request.user.is_authenticated:
+        return redirect('patient:login')
     if request.method == 'GET':
         logout(request)
         return redirect('patient:login')
@@ -28,6 +30,9 @@ def logout_view(request):
 
 def profile_view(request):
     if not request.user.is_authenticated:
+        return redirect('patient:login')
+    elif not Patient.objects.filter(user=request.user).exists():
+        logout(request)
         return redirect('patient:login')
     patient = Patient.objects.get(user=request.user)
     return render(request, 'patient/profile.html', {'patient': patient})

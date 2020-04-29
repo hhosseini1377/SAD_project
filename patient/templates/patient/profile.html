@@ -2,13 +2,15 @@
 
 {% block content %}
 
-    <h1 style="text-align:right; padding-right: 10px" >پروفایل شما</h1>
-    <div class = "profile" style="padding-right: 10px">
-        <p style="text-align: right"> نام: {{ patient.first_name }}</p>
-        <p style="text-align: right"> نام خانوادگی: {{ patient.last_name }}</p>
-        <p style="text-align: right"> {{ patient.email }} :آدرس ایمیل </p>
-        <p style="text-align: right">شماره تلفن: {{ patient.phone_number }}</p>
-        <p style="text-align: right">شماره موبایل: {{ patient.mobile_number }} </p>
+    <div class = "profile" style=" padding: 20px;">
+        <ul class = "list-group">
+            <li class = "list-group-item active" style="text-align: right">پروفایل شما</li>
+            <li class = "list-group-item" style="text-align: right"> نام: {{ patient.first_name }}</li>
+            <li class = "list-group-item" style="text-align: right"> نام خانوادگی: {{ patient.last_name }}</li>
+            <li class = "list-group-item" style="text-align: right"> {{ patient.email }} :آدرس ایمیل </li>
+            <li class = "list-group-item" style="text-align: right">شماره تلفن: {{ patient.phone_number }}</li>
+            <li class = "list-group-item" style="text-align: right">شماره موبایل: {{ patient.mobile_number }} </li>
+        </ul>
     </div>
 
 {% endblock %}

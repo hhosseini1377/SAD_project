@@ -4,7 +4,25 @@
     <list default="true" id="a5fd1a0c-ed89-412a-8cb2-c28d8419979a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/insurance/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/insurance/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/insurance/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/insurance/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/insurance/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/insurance/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/insurance/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/insurance/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/migrations/0002_remove_patient_profile_picture.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/disease_records.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/disease_records.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patient/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacy/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +146,9 @@
       <workItem from="1587313711036" duration="4337000" />
       <workItem from="1587362790822" duration="3307000" />
       <workItem from="1587479077919" duration="1575000" />
+      <workItem from="1587526978024" duration="1780000" />
+      <workItem from="1587529471196" duration="2654000" />
+      <workItem from="1588146002756" duration="186000" />
     </task>
     <servers />
   </component>
@@ -139,11 +160,12 @@
       <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state x="408" y="172" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.814@0.23.1440.814" timestamp="1587087270984" />
-    <state x="399" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1587479165771">
-      <screen x="0" y="23" width="1440" height="813" />
+    <state x="399" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1588146003726">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.813@0.23.1440.813" timestamp="1587479165770" />
-    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1587362790864" />
+    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.813@0.23.1440.813" timestamp="1587526978204" />
+    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1588146003726" />
+    <state x="399" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1587529471657" />
     <state x="385" y="161" width="670" height="676" key="search.everywhere.popup" timestamp="1587179888567">
       <screen x="0" y="23" width="1440" height="814" />
     </state>
