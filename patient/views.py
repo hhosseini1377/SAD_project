@@ -6,10 +6,10 @@ from .models import Patient
 
 def profile_view(request):
     if not request.user.is_authenticated:
-        return redirect('patient:login')
+        return redirect('users:login')
     elif not Patient.objects.filter(user=request.user).exists():
         logout(request)
-        return redirect('patient:login')
+        return redirect('users:login')
     patient = Patient.objects.get(user=request.user)
     return render(request, 'patient/profile.html', {'patient': patient})
 

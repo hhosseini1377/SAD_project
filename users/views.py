@@ -10,21 +10,34 @@ def login_view(request):
     if request.user.is_authenticated:
         if Patient.objects.filter(user=request.user).exists():
             return redirect('patient:profile')
-    logout(request)
+        elif Pharmacy.objects.filter(user=request.user).exists():
+            pass
+        elif Doctor.objects.filter(user=request.user).exists():
+            pass
+
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('patient:profile')
+            if Patient.objects.filter(user=request.user).exists():
+                return redirect('patient:profile')
+            elif Pharmacy.objects.filter(user=request.user).exists():
+                pass
+            elif Doctor.objects.filter(user=request.user).exists():
+                pass
+        else:
+            pass
+
     else:
         form = AuthenticationForm()
-    return render(request, 'users/login.html', {'form': form})
+    return render(request, 'users/index.html', {'form': form})
 
 
 def logout_view(request):
     if not request.user.is_authenticated:
-        return redirect('patient:login')
+        return redirect('users:login')
     if request.method == 'GET':
         logout(request)
-        return redirect('patient:login')
+        return redirect('users:login')
+
