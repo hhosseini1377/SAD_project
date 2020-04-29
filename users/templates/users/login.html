@@ -1,15 +1,12 @@
-
-
 <html>
     <head>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'patient/login_style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'users/login_style.css' %}" />
         <title>Login</title>
     </head>
 
     <body>
         {% block content %}
-            <h1 style="text-align: center; padding-top: 10px">سامانه نسخه آنلاین</h1>
             <div class="form">
                 <h1>login</h1>
                 <form class="site-form" action="{% url 'patient:login' %}" method="post">

@@ -3,26 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a5fd1a0c-ed89-412a-8cb2-c28d8419979a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insurance/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insurance/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insurance/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insurance/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insurance/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insurance/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insurance/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insurance/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/migrations/0002_remove_patient_profile_picture.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/templates/patient/disease_records.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/disease_records.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/templates/patient/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/templates/patient/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/static/patient/login_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patient/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacy/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +32,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -80,15 +66,15 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/patient/static/patient" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/project/templates/project" />
+      <recent name="$PROJECT_DIR$/project/static/project" />
       <recent name="$PROJECT_DIR$/patient/static/patient" />
       <recent name="$PROJECT_DIR$/patient/templates" />
       <recent name="$PROJECT_DIR$/patient" />
-      <recent name="$PROJECT_DIR$/project/static" />
-      <recent name="$PROJECT_DIR$/project" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/patient/static/patient" />
     </key>
   </component>
   <component name="RunManager">
@@ -148,7 +134,7 @@
       <workItem from="1587479077919" duration="1575000" />
       <workItem from="1587526978024" duration="1780000" />
       <workItem from="1587529471196" duration="2654000" />
-      <workItem from="1588146002756" duration="186000" />
+      <workItem from="1588146002756" duration="1690000" />
     </task>
     <servers />
   </component>
