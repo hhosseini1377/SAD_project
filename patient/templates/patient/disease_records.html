@@ -1,16 +1,32 @@
 {% extends 'patient/base_layout.html' %}
 
+{% load static %}
+<link rel="stylesheet" href="{% static 'patient/disease_records.css' %}">
+
 {% block content %}
 
-    <div class = "disease_records" style="padding-right: 10px; text-align: right;padding-top: 20px;">
+    <div class = "disease_records">
         <ul class = "list-group">
             <li class="list-group-item active">سوابق بیماری</li>
             {% for record in records %}
-                <li class="list-group-item">
-                    {{record}}
+                <div class="diseases">
+                <li class="list-group-item" >
+                    <p>{{ record }}</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <a href="{% url 'patient:remove_record' disease=record %}">حذف</a>
+                    </form>
                 </li>
+                </div>
             {% endfor %}
         </ul>
+        <h3 style="padding-top: 20px;">:سابقه بیماری اضافه کنید</h3>
+        <form method="post" action="{% url 'patient:disease_records' %}">
+            {% csrf_token %}
+            <input type="submit" value="ثبت">
+            {{ form }}
+        </form>
+
     </div>
 
 {% endblock %}

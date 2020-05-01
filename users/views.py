@@ -14,6 +14,7 @@ def login_view(request):
             pass
         elif Doctor.objects.filter(user=request.user).exists():
             pass
+    logout(request)
 
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)

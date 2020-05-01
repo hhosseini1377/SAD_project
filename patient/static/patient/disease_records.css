@@ -1,0 +1,16 @@
+.disease_records{
+    padding-right: 10px;
+    text-align: right;
+    padding-top: 20px;
+    width: 50%;
+    float: right
+}
+
+.disease_records p{
+    display: inline;
+    padding-left: 10px
+}
+
+.disease_records form{
+    display: inline;
+}

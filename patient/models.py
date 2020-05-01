@@ -13,11 +13,13 @@ class Patient(models.Model):
     email = models.EmailField()
     national_id = models.IntegerField(primary_key=True)
     date_of_birth = models.DateField()
-    disease_records = models.CharField(max_length=100)
-    doctors = models.ManyToManyField(Doctor, blank=True)
 
     def __str__(self):
         return self.first_name + " " + self.last_name
 
+
+class disease_record(models.Model):
+    disease_name = models.CharField(max_length=20)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
 
