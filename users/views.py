@@ -13,7 +13,7 @@ def login_view(request):
         elif Pharmacy.objects.filter(user=request.user).exists():
             pass
         elif Doctor.objects.filter(user=request.user).exists():
-            pass
+            return redirect('doctor:profile')
     logout(request)
 
     if request.method == "POST":
@@ -23,9 +23,9 @@ def login_view(request):
             login(request, user)
             if Patient.objects.filter(user=request.user).exists():
                 return redirect('patient:profile')
-            elif Pharmacy.objects.filter(user=request.user).exists():
-                pass
             elif Doctor.objects.filter(user=request.user).exists():
+                return redirect('doctor:profile')
+            elif Pharmacy.objects.filter(user=request.user).exists():
                 pass
         else:
             pass
