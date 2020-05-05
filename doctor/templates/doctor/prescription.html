@@ -16,65 +16,67 @@
                 {% csrf_token %}
                 {{ formset.management_form }}
                 {% for form in formset %}
-                    <div class="form-row" style="text-align: right; direction: rtl">
-                        {% if form.drugName.errors %}
-                            <div class="control-group error col">
-                                <label class="control-label">نام دارو</label>
-                                <div class="controls">{{ form.drugName }}
-                                    <span class="help-inline">
-                                        {% for error in  form.drugName.errors %}{{ error }}{% endfor %}
-                                    </span>
+                    <div class="container bg-light border rounded" style="padding: 2%; margin: 1%">
+                        <div class="form-row" style="text-align: right; direction: rtl">
+                            {% if form.drugName.errors %}
+                                <div class="control-group error col">
+                                    <label class="control-label">نام دارو</label>
+                                    <div class="controls">{{ form.drugName }}
+                                        <span class="help-inline">
+                                            {% for error in  form.drugName.errors %}{{ error }}{% endfor %}
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                        {% else %}
-                            <div class="col-7">
-                            <div class="form-group">
-                                <label class="form-control-label">نام دارو</label>
-                                {{ form.drugName }}
-                            </div>
-                            </div>
-                        {% endif %}
+                            {% else %}
+                                <div class="col-7">
+                                <div class="form-group">
+                                    <label class="form-control-label">نام دارو</label>
+                                    {{ form.drugName }}
+                                </div>
+                                </div>
+                            {% endif %}
 
-                        {% if form.number.errors %}
-                            <div class="control-group error col">
-                                <label class="control-label">تعداد</label>
-                                <div class="controls ">{{ form.number }}
-                                    <span class="help-inline">
-                                        {% for error in  form.number.errors %}{{ error }}{% endfor %}
-                                    </span>
+                            {% if form.number.errors %}
+                                <div class="control-group error col">
+                                    <label class="control-label">تعداد</label>
+                                    <div class="controls ">{{ form.number }}
+                                        <span class="help-inline">
+                                            {% for error in  form.number.errors %}{{ error }}{% endfor %}
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                        {% else %}
-                            <div class="col-2">
-                            <div class="form-group">
-                                <label class="form-control-label">تعداد</label>
-                                {{ form.number }}
-                            </div>
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="form-row" style="text-align: right; direction: rtl">
-                        {% if form.usage.errors %}
-                            <div class="control-group error col-auto">
-                                <label class="control-label">طریقه مصرف</label>
-                                <div class="controls">{{ form.usage }}
-                                    <span class="help-inline">
-                                        {% for error in  form.usage.errors %}{{ error }}{% endfor %}
-                                    </span>
+                            {% else %}
+                                <div class="col-2">
+                                <div class="form-group">
+                                    <label class="form-control-label">تعداد</label>
+                                    {{ form.number }}
                                 </div>
-                            </div>
-                        {% else %}
-                            <div class="form-group col-12">
-                                <label class="form-control-label">طریقه مصرف</label>
-                                {{ form.usage }}
-                            </div>
-                        {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-row" style="text-align: right; direction: rtl">
+                            {% if form.usage.errors %}
+                                <div class="control-group error col-auto">
+                                    <label class="control-label">طریقه مصرف</label>
+                                    <div class="controls">{{ form.usage }}
+                                        <span class="help-inline">
+                                            {% for error in  form.usage.errors %}{{ error }}{% endfor %}
+                                        </span>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="form-group col-12">
+                                    <label class="form-control-label">طریقه مصرف</label>
+                                    {{ form.usage }}
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
-                    <hr/>
                 {% endfor %}
-                <input type="submit" name="action" value="اضافه کردن دارو" class="btn btn-outline-primary">
-                <br/><br/>
-                <input type="submit" name="action" value="ثبت نسخه" class="btn btn-outline-success">
+                <hr/>
+                <input type="submit" name="action" value="اضافه کردن دارو" class="btn btn-outline-primary" style="margin: 2px">
+                <br/>
+                <input type="submit" name="action" value="ثبت نسخه" class="btn btn-outline-success" style="margin: 2px">
             </form>
         {% endif %}
     </div>
