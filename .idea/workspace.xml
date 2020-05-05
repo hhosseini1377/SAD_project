@@ -19,9 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5fd1a0c-ed89-412a-8cb2-c28d8419979a" name="Default Changelist" comment="registered models. db working. beautify web pages. doctor profile page bug fixed.">
+    <list default="true" id="a5fd1a0c-ed89-412a-8cb2-c28d8419979a" name="Default Changelist" comment="beautify web pages.">
+      <change afterPath="$PROJECT_DIR$/patient/static/patient/add_credit.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient/templates/patient/add_credit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/templates/doctor/prescription.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/templates/doctor/prescription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/disease_records.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/disease_records.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +56,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -145,7 +153,7 @@
       <workItem from="1587526978024" duration="1780000" />
       <workItem from="1587529471196" duration="2654000" />
       <workItem from="1588146002756" duration="1690000" />
-      <workItem from="1588663771398" duration="3951000" />
+      <workItem from="1588663771398" duration="11749000" />
     </task>
     <task id="LOCAL-00001" summary="added prescription page. first commit :)">
       <created>1588633194257</created>
@@ -161,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588666749445</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="beautify web pages.">
+      <created>1588667788115</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588667788115</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +197,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added prescription page. first commit :)" />
     <MESSAGE value="registered models. db working. beautify web pages. doctor profile page bug fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="registered models. db working. beautify web pages. doctor profile page bug fixed." />
+    <MESSAGE value="beautify web pages." />
+    <option name="LAST_COMMIT_MESSAGE" value="beautify web pages." />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588605335832">
@@ -195,30 +211,30 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="643" y="77" width="690" height="951" key="#project/67.27.1853.1053@67.27.1853.1053" timestamp="1588605283463" />
-    <state width="1793" height="253" key="GridCell.Tab.0.bottom" timestamp="1588667350245">
+    <state width="1793" height="253" key="GridCell.Tab.0.bottom" timestamp="1588673355955">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1793" height="253" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1588667350245" />
-    <state width="1793" height="253" key="GridCell.Tab.0.center" timestamp="1588667350244">
+    <state width="1793" height="253" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1588673355955" />
+    <state width="1793" height="253" key="GridCell.Tab.0.center" timestamp="1588673355955">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1793" height="253" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1588667350244" />
-    <state width="1793" height="253" key="GridCell.Tab.0.left" timestamp="1588667350244">
+    <state width="1793" height="253" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1588673355955" />
+    <state width="1793" height="253" key="GridCell.Tab.0.left" timestamp="1588673355955">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1793" height="253" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1588667350244" />
-    <state width="1793" height="253" key="GridCell.Tab.0.right" timestamp="1588667350245">
+    <state width="1793" height="253" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1588673355955" />
+    <state width="1793" height="253" key="GridCell.Tab.0.right" timestamp="1588673355955">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1793" height="253" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1588667350245" />
+    <state width="1793" height="253" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1588673355955" />
     <state x="475" y="187" key="SettingsEditor" timestamp="1588605309674">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="475" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1588605309674" />
-    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1588666760369">
+    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1588667800868">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1588666760369" />
+    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1588667800868" />
     <state x="399" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1588604780108" />
     <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.813@0.23.1440.813" timestamp="1588604780108" />
     <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1588604780108" />

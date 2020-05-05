@@ -1,7 +1,9 @@
 {% extends 'patient/base_layout.html' %}
 
-{% load static %}
-<link rel="stylesheet" href="{% static 'patient/disease_records.css' %}">
+{% block headers %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'patient/disease_records.css' %}">
+{% endblock %}
 
 {% block content %}
 

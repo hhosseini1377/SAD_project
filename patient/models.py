@@ -13,6 +13,7 @@ class Patient(models.Model):
     email = models.EmailField()
     national_id = models.IntegerField(primary_key=True)
     date_of_birth = models.DateField()
+    credit = models.IntegerField(default=0)
 
     def __str__(self):
         return self.first_name + " " + self.last_name

@@ -43,3 +43,24 @@ def remove_record(request, disease):
     disease_record.objects.get(patient__user=request.user, disease_name=disease).delete()
     return redirect('patient:disease_records')
 
+
+def add_credit(request):
+    if not request.user.is_authenticated:
+        return redirect('patient:login')
+    elif not Patient.objects.filter(user=request.user).exists():
+        logout(request)
+        return redirect('users:login')
+    patient = Patient.objects.get(user=request.user)
+
+    if request.method == 'POST':
+        if 'credit_radio' not in request.POST:
+            return render(request, 'patient/add_credit.html', context={'msg': 'یکی از مبالغ را انتخاب کنید',
+                                                                       'success': False})
+        amount = request.POST['credit_radio'][:-1]
+        patient.credit = patient.credit + int(amount)
+        patient.save()
+        return render(request, 'patient/add_credit.html', context={'msg': 'افزایش اعتبار با موفقیت انجام شد',
+                                                                   'success': True})
+
+    return render(request, 'patient/add_credit.html')
+

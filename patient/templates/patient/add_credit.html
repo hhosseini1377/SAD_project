@@ -1,0 +1,63 @@
+{% extends 'patient/base_layout.html' %}
+
+{% block headers %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'patient/add_credit.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron pe_right_align">
+            <h1 class="display-4">افزایش اعتبار</h1>
+            <p class="lead">در این صفحه می‌توانید اعتبار حساب خود را افزایش دهید</p>
+
+        </div>
+        {% if msg %}
+            {% if success == True %}
+                <div class="alert alert-success pe_right_align">
+                    {{ msg }}
+                </div>
+            {% else %}
+                <div class="alert alert-danger pe_right_align">
+                    {{ msg }}
+                </div>
+            {% endif %}
+        {% endif %}
+        <form method="post" class="bg-light border rounded form_box">
+            {% csrf_token %}
+            <div class="pe_center_align">
+                <h3>مبلغ مورد نظر را انتخاب کنید:</h3>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <label for="radio1">
+                            <input type="button" class="btn btn-outline-secondary" value="۱۰ تومان">
+                        </label>
+                        <input type="radio" id="radio1" name="credit_radio" value="10t" class="radio_hidden">
+                    </div>
+                    <div class="col-auto">
+                        <label for="radio2">
+                            <input type="button" class="btn btn-outline-secondary" value="۲۰ تومان">
+                        </label>
+                        <input type="radio" id="radio2" name="credit_radio" value="20t" class="radio_hidden">
+                    </div>
+                    <div class="col-auto">
+                        <label for="radio3">
+                            <input type="button" class="btn btn-outline-secondary" value="۵۰ تومان">
+                        </label>
+                        <input type="radio" id="radio3" name="credit_radio" value="50t" class="radio_hidden">
+                    </div>
+                    <div class="col-auto">
+                        <label for="radio4">
+                            <input type="button" class="btn btn-outline-secondary" value="۱۰۰ تومان">
+                        </label>
+                        <input type="radio" id="radio4" name="credit_radio" value="100t" class="radio_hidden">
+                    </div>
+                </div>
+                <br/>
+                <input type="submit" class="btn btn-outline-success" value="افزایش اعتبار">
+            </div>
+        </form>
+
+    </div>
+{% endblock %}
