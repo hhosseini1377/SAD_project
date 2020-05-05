@@ -28,8 +28,6 @@ def make_prescription(request):
     elif not Doctor.objects.filter(user=request.user).exists():
         logout(request)
         return redirect('users:login')
-    doctor = Doctor.objects.get(user=request.user)
-    prescription = PrescriptionInfo(doctor)
 
     if request.method == 'POST':
         DrugFormSet = formset_factory(DrugForm, extra=1)
@@ -37,20 +35,25 @@ def make_prescription(request):
             print("adding new drug field")
             formset = DrugFormSet(request.POST)
             if formset.is_valid():
-                print(formset.cleaned_data[0])
+                # print(formset.cleaned_data[0])
                 formset = DrugFormSet(initial=formset.cleaned_data)
-                print("new drug field before render")
+                # print("new drug field before render")
             return render(request, 'doctor/prescription.html', context={'formset': formset})
         else:
             formset = DrugFormSet(data=request.POST)
             if formset.is_valid():
-                for form in formset.cleaned_data:
-                    drugForm = DrugForm(form)
+                doctor = Doctor.objects.get(user=request.user)
+                prescription = PrescriptionInfo(author=doctor)
+                prescription.save()
+
+                for form_data in formset.cleaned_data:
+                    drugForm = DrugForm(data=form_data)
                     drug = drugForm.save(commit=False)
                     drug.prescription_id = prescription
-                    drug.save(commit=True)
-                prescription.save()
+                    drug.save()
+
                 return render(request, 'doctor/prescription.html', context={'msg': 'نسخه با موفقیت ثبت شد'})
+
     DrugFormSet = formset_factory(DrugForm)
     formset = DrugFormSet()
     return render(request, 'doctor/prescription.html', context={'formset': formset})

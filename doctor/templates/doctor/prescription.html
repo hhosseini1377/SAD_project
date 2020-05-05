@@ -2,12 +2,12 @@
 
 {% block content %}
     <div class="jumbotron" style="direction: rtl; text-align: right">
-    <h1>نسخه جدید را بنویسید:</h1>
+    <h1>نسخه جدید را بنویسید</h1>
     </div>
     <div class="container">
         {% if msg %}
-            <div class="alert alert-success" role="alert">
-                {{ msg }}
+            <div class="alert alert-success" style="direction: rtl; text-align: right" role="alert">
+                <h3>{{ msg }}</h3>
             </div>
         {% endif %}
 
@@ -72,9 +72,9 @@
                     </div>
                     <hr/>
                 {% endfor %}
-                <input type="submit" name="action" value="اضافه کردن دارو" class="btn btn-primary">
+                <input type="submit" name="action" value="اضافه کردن دارو" class="btn btn-outline-primary">
                 <br/><br/>
-                <input type="submit" name="action" value="ثبت نسخه" class="btn btn-success">
+                <input type="submit" name="action" value="ثبت نسخه" class="btn btn-outline-success">
             </form>
         {% endif %}
     </div>

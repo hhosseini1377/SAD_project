@@ -9,6 +9,6 @@ class DrugForm(forms.ModelForm):
         widgets = {
             'drugName': widgets.TextInput(attrs={'class': 'form-control'}),
             'number': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'usage': widgets.Textarea(attrs={'class': 'form-control'})}
+            'usage': widgets.Textarea(attrs={'class': 'form-control', 'cols': 10, 'rows': 3})}
 
 
