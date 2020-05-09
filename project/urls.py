@@ -20,5 +20,7 @@ app_name = 'project'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('patient/', include('patient.urls')),
-    path('user/', include('users.urls'))
+    path('user/', include('users.urls')),
+    path('doctor/', include('doctor.urls'))
 ]
+

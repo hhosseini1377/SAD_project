@@ -1,0 +1,12 @@
+{% extends 'doctor/base_layout.html' %}
+
+{% block content %}
+
+    <div class = "profile" style=" padding: 20px; width: 50%; float: right;">
+        <ul class = "list-group">
+            <li class = "list-group-item active" style="text-align: right">پروفایل شما</li>
+            <li class = "list-group-item" style="text-align: right"> نام: {{ doctor.doctor_id }}</li>
+        </ul>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'doctor/base_layout.html' %}
+
+{% block headers %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'doctor/reservation.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h3 style="text-align: right; padding: 10px; position: relative">زمان‌های رزرو </h3>
+    <div class="reservations" style="padding-left: 10px;">
+        <nav aria-label="...">
+            <ul class="pagination pagination-lg" >
+                <li class="page-item" style="text-align: center"><a class="page-link" href="{% url 'doctor:reservation' day=6 %}">{{ week_days.6 }}<p>{{reserve_date.6.year}}-{{ reserve_date.6.month }}-{{ reserve_date.6.day }}</p></a></li>
+                <li class="page-item" style="text-align: center"><a class="page-link" href="{% url 'doctor:reservation' day=5 %}">{{ week_days.5 }}<p>{{reserve_date.5.year}}-{{ reserve_date.5.month }}-{{ reserve_date.5.day }}</p></a></li>
+                <li class="page-item" style="text-align: center"><a class="page-link" href="{% url 'doctor:reservation' day=4 %}">{{ week_days.4 }}<p>{{reserve_date.4.year}}-{{ reserve_date.4.month }}-{{ reserve_date.4.day }}</p></a></li>
+                <li class="page-item" style="text-align: center"><a class="page-link" href="{% url 'doctor:reservation' day=3 %}">{{ week_days.3 }}<p>{{reserve_date.3.year}}-{{ reserve_date.3.month }}-{{ reserve_date.3.day }}</p></a></li>
+                <li class="page-item" style="text-align: center"><a class="page-link" href="{% url 'doctor:reservation' day=2 %}">{{ week_days.2 }}<p>{{reserve_date.2.year}}-{{ reserve_date.2.month }}-{{ reserve_date.2.day }}</p></a></li>
+                <li class="page-item" style="text-align: center"><a class="page-link" href="{% url 'doctor:reservation' day=1 %}">{{ week_days.1 }}<p>{{reserve_date.1.year}}-{{ reserve_date.1.month }}-{{ reserve_date.1.day }}</p></a></li>
+                <li class="page-item" style="text-align: center"><a class="page-link" href="{% url 'doctor:reservation' day=0 %}">{{ week_days.0 }}<p>{{reserve_date.0.year}}-{{ reserve_date.0.month }}-{{ reserve_date.0.day }}</p></a></li>
+            </ul>
+        </nav>
+
+        <ul class = "list-group">
+            <li class="list-group-item active">
+                {{date.year}}-{{ date.month }}-{{ date.day }}
+                {% if date.weekday == 0 %}
+                    شنبه
+                {% endif %}
+                {% if date.weekday == 1 %}
+                    یک‌شنبه
+                {% endif %}
+                {% if date.weekday == 2 %}
+                    دو‌شنبه
+                {% endif %}
+                {% if date.weekday == 3 %}
+                    سه‌شنبه
+                {% endif %}
+                {% if date.weekday == 4 %}
+                    چهار‌شنبه
+                {% endif %}
+                {% if date.weekday == 5 %}
+                    پیج‌شنبه
+                {% endif %}
+                {% if date.weekday == 6 %}
+                    ‌جمعه
+                {% endif %}
+
+            </li>
+            {% for reservation in reservations %}
+                <li class="list-group-item">
+                    ساعت {{ reservation.start_time.hour }}:{{ reservation.start_time.minute }} تا {{ reservation.end_time.hour }}:{{ reservation.end_time.minute }}
+                    <a style="padding-right: 20px; color: red;" href="{% url 'doctor:remove_reservation' reservation_id=reservation.id %}">حذف</a>
+                    {% if not reservation.patient == None %}
+                    <p style="color: grey; display: inline; padding-right: 20px;">رزرو شده</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div style="text-align: right" class="add_reservation">
+    <h3>زمان رزرو جدید اضافه کنید</h3>
+        <form method="post" action="{% url 'doctor:reservation' day=day %}" style="text-align: right;">
+            {% csrf_token %}
+                <div class="field">
+                    {{ form.start_time }}
+                    <label for="{{ field.id_for_label }}" class="label">:زمان آغاز</label>
+                </div>
+                <div class="field">
+                    {{ form.end_time }}
+                    <label for="{{ field.id_for_label }}" class="label">:زمان اتمام</label>
+                </div>
+
+            <button type="submit" class="btn btn-outline-primary" style="text-align: right;">ثبت</button>
+        </form>
+        <p>{{ msg }}</p>
+    </div>
+
+
+{% endblock %}

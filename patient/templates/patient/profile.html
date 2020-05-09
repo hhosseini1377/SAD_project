@@ -1,16 +1,33 @@
 {% extends 'patient/base_layout.html' %}
 
 {% block content %}
-
-    <div class = "profile" style=" padding: 20px; width: 50%; float: right;">
-        <ul class = "list-group">
-            <li class = "list-group-item active" style="text-align: right">پروفایل شما</li>
-            <li class = "list-group-item" style="text-align: right"> نام: {{ patient.first_name }}</li>
-            <li class = "list-group-item" style="text-align: right"> نام خانوادگی: {{ patient.last_name }}</li>
-            <li class = "list-group-item" style="text-align: right"> {{ patient.email }} :آدرس ایمیل </li>
-            <li class = "list-group-item" style="text-align: right">شماره تلفن: {{ patient.phone_number }}</li>
-            <li class = "list-group-item" style="text-align: right">شماره موبایل: {{ patient.mobile_number }} </li>
-        </ul>
+    {% load static %}
+    <div class="row" style="direction: rtl">
+        <div class="col-auto">
+           <div class = "profile">
+                <ul class = "list-group">
+                    <li class = "list-group-item active" style="text-align: right">پروفایل شما</li>
+                    <li class = "list-group-item" style="text-align: right"> نام: {{ patient.first_name }}</li>
+                    <li class = "list-group-item" style="text-align: right"> نام خانوادگی: {{ patient.last_name }}</li>
+                    <li class = "list-group-item" style="text-align: right"> {{ patient.email }} :آدرس ایمیل </li>
+                    <li class = "list-group-item" style="text-align: right">شماره تلفن: {{ patient.phone_number }}</li>
+                    <li class = "list-group-item" style="text-align: right">شماره موبایل: {{ patient.mobile_number }} </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-auto">
+                <div class="card" style="width: 18rem; text-align: right; direction: rtl">
+                    <img class="card-img-top" src="{% static "patient/credit.png" %}">
+                    <div class="card-body">
+                        <h5 class="card-title">اعتبار:
+                        {{ patient.credit }}
+                        </h5>
+                        <p class="card-text">برای افزایش اعتبار روی دکمه زیر کلیک کنید</p>
+                        <a href="{% url 'patient:add_credit' %}" class="btn btn-outline-primary">افزایش اعتبار</a>
+                    </div>
+                </div>
+        </div>
     </div>
+
 
 {% endblock %}
