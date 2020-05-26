@@ -13,6 +13,7 @@ class Doctor(models.Model):
 
 class PrescriptionInfo(models.Model):
     author = models.ForeignKey(to=Doctor, on_delete=models.CASCADE)
+    patient = models.ForeignKey(to=Patient, on_delete=models.CASCADE)
 
 
 class Drug(models.Model):
