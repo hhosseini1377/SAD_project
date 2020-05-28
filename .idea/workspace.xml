@@ -19,21 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5fd1a0c-ed89-412a-8cb2-c28d8419979a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/patient/static/patient/credit.png" afterDir="false" />
+    <list default="true" id="49ec0190-35b2-40de-9890-eb725500c72c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/patient/templates/patient/search_doctor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient/templates/patient/search_result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/migrations/0002_auto_20200506_1137.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/migrations/0003_auto_20200506_1140.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/migrations/0004_auto_20200506_1145.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/static/patient/add_credit.css" beforeDir="false" afterPath="$PROJECT_DIR$/patient/static/patient/add_credit.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/templates/patient/add_credit.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/add_credit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacy/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +105,18 @@
       <recent name="$PROJECT_DIR$/patient/static/patient" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="project" type="Python.DjangoServer" factoryName="Django server" singleton="false">
       <module name="project" />
@@ -119,9 +126,9 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="project.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Kiarash\AppData\Local\Programs\Python\Python37\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
@@ -200,12 +207,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added prescription page. first commit :)" />
