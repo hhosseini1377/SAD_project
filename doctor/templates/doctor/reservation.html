@@ -47,6 +47,11 @@
                 {% endif %}
 
             </li>
+            {% if not reservations %}
+                <li class="list-group-item">
+                زمانی برای این روز ایجاد نشده است
+                </li>
+            {% endif %}
             {% for reservation in reservations %}
                 <li class="list-group-item">
                     ساعت {{ reservation.start_time.hour }}:{{ reservation.start_time.minute }} تا {{ reservation.end_time.hour }}:{{ reservation.end_time.minute }}
