@@ -1,0 +1,77 @@
+{% extends 'patient/base_layout.html' %}
+
+{% block content %}
+    <div class="jumbotron" style="direction: rtl; text-align: right">
+        <h1 class="display-4">مشاهده نسخه‌ها</h1>
+        <p class="lead">در این صفحه می‌توانید نسخه‌های خود را مشاهده کنید.</p>
+    </div>
+    <div class="container-fluid" style="direction: rtl; text-align: right">
+        {% if patient %}
+            {% load static %}
+            <div class="row">
+                <h4 class="col-12" style="text-align: center;">
+                    نسخه‌های ذخیره‌شده برای
+                    {{ patient.first_name }} {{ patient.last_name }}
+                    <hr/>
+                </h4>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <div class="card">
+                        <img class="card-img-top" src={% static "patient/avatar.png" %}>
+                        <div class="card-body">
+                            <h5 class="card-title">مشخصات بیمار</h5>
+                        </div>
+
+                        {% if patient %}
+                          <ul class="list-group list-group-flush" style="padding-inline-start: 0">
+                              <li class="list-group-item">{{ patient.first_name }} {{ patient.last_name }}</li>
+                              <li class="list-group-item">
+                                  کد ملی:
+                                  {{ patient.national_id }}</li>
+                              <li class="list-group-item">
+                                  تاریخ تولد:
+                                  {{ patient.date_of_birth }}</li>
+                              <li class="list-group-item">
+                                  شماره موبایل:
+                                  {{ patient.mobile_number }}</li>
+                          </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-10">
+                    {% for prescription in prescriptions %}
+                        <div class="container bg-light border rounded" style="padding: 2%; margin: 1%">
+                                <h5>
+                                    کد پزشک:
+                                    {{ prescription.author.doctor_id }}
+                                </h5>
+                                {% for drug in prescription.drug_set.all %}
+                                    <div class="card mb-3 w-50">
+                                        <ul class="list-group list-group-flush" style="padding-inline-start: 0">
+                                            <li class="list-group-item">
+                                               نام دارو:
+                                                {{ drug.drugName }}
+                                            </li>
+                                            <li class="list-group-item">
+                                                    تعداد:
+                                                {{ drug.number }}
+                                            </li>
+                                            <li class="list-group-item">
+                                                نحوه مصرف:
+                                                {{ drug.usage }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                {% endfor %}
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}

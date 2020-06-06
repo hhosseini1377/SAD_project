@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49ec0190-35b2-40de-9890-eb725500c72c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/patient/templates/patient/search_doctor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient/templates/patient/search_result.html" afterDir="false" />
+    <list default="true" id="a5fd1a0c-ed89-412a-8cb2-c28d8419979a" name="Default Changelist" comment="doctor can view and write prescription for any patient. somewhat ok ui.">
+      <change afterPath="$PROJECT_DIR$/patient/templates/patient/prescriptions.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -56,8 +55,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -105,18 +104,6 @@
       <recent name="$PROJECT_DIR$/patient/static/patient" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="project" type="Python.DjangoServer" factoryName="Django server" singleton="false">
       <module name="project" />
@@ -126,7 +113,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="project.settings" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Kiarash\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/django-env/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -174,6 +161,8 @@
       <workItem from="1588517499123" duration="856000" />
       <workItem from="1588146002756" duration="1690000" />
       <workItem from="1588663771398" duration="11749000" />
+      <workItem from="1590523183324" duration="12884000" />
+      <workItem from="1591445776277" duration="1978000" />
     </task>
     <task id="LOCAL-00001" summary="added prescription page. first commit :)">
       <created>1588633194257</created>
@@ -196,7 +185,35 @@
       <option name="project" value="LOCAL" />
       <updated>1588667788115</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="last code from sprint 2">
+      <created>1590523290332</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1590523290332</updated>
+    </task>
+    <task id="LOCAL-00005" summary="last code from sprint 2">
+      <created>1590523359301</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590523359301</updated>
+    </task>
+    <task id="LOCAL-00006" summary="starter code for sprint 3">
+      <created>1590523402624</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1590523402624</updated>
+    </task>
+    <task id="LOCAL-00007" summary="doctor can view and write prescription for any patient. somewhat ok ui.">
+      <created>1590536020520</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1590536020520</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,63 +224,69 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added prescription page. first commit :)" />
     <MESSAGE value="registered models. db working. beautify web pages. doctor profile page bug fixed." />
     <MESSAGE value="beautify web pages." />
-    <option name="LAST_COMMIT_MESSAGE" value="beautify web pages." />
+    <MESSAGE value="last code from sprint 2" />
+    <MESSAGE value="starter code for sprint 3" />
+    <MESSAGE value="doctor can view and write prescription for any patient. somewhat ok ui." />
+    <option name="LAST_COMMIT_MESSAGE" value="doctor can view and write prescription for any patient. somewhat ok ui." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="451" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588605335832">
+    <state x="451" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591446793197">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="451" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1588605335832" />
+    <state x="451" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1591446793197" />
     <state x="408" y="172" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588604780108" />
     <state x="408" y="172" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.814@0.23.1440.814" timestamp="1587087270984" />
     <state x="643" y="77" width="690" height="951" key="#project" timestamp="1588605283463">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="643" y="77" width="690" height="951" key="#project/67.27.1853.1053@67.27.1853.1053" timestamp="1588605283463" />
-    <state width="1793" height="271" key="GridCell.Tab.0.bottom" timestamp="1589119286794">
+    <state width="1793" height="253" key="GridCell.Tab.0.bottom" timestamp="1591447751776">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1793" height="271" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1589119286794" />
-    <state width="1793" height="271" key="GridCell.Tab.0.center" timestamp="1589119286794">
+    <state width="1793" height="253" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1591447751776" />
+    <state width="1793" height="253" key="GridCell.Tab.0.center" timestamp="1591447751775">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1793" height="271" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1589119286794" />
-    <state width="1793" height="271" key="GridCell.Tab.0.left" timestamp="1589119286793">
+    <state width="1793" height="253" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1591447751775" />
+    <state width="1793" height="253" key="GridCell.Tab.0.left" timestamp="1591447751775">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1793" height="271" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1589119286793" />
-    <state width="1793" height="271" key="GridCell.Tab.0.right" timestamp="1589119286794">
+    <state width="1793" height="253" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1591447751775" />
+    <state width="1793" height="253" key="GridCell.Tab.0.right" timestamp="1591447751776">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1793" height="271" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1589119286794" />
+    <state width="1793" height="253" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1591447751776" />
+    <state x="247" y="116" width="1482" height="872" key="MergeDialog" timestamp="1591445887237">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="247" y="116" width="1482" height="872" key="MergeDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1591445887237" />
     <state x="475" y="187" key="SettingsEditor" timestamp="1588605309674">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="475" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1588605309674" />
-    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1588667800868">
+    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1590536045971">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1588667800868" />
+    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1590536045971" />
     <state x="399" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1588604780108" />
     <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.813@0.23.1440.813" timestamp="1588604780108" />
     <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1588604780108" />
     <state x="399" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1588604780108" />
-    <state x="758" y="458" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588633149401">
+    <state x="758" y="458" width="461" height="188" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591445868560">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="758" y="458" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1588633149401" />
+    <state x="758" y="458" width="461" height="188" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1591445868560" />
     <state x="385" y="161" width="670" height="676" key="search.everywhere.popup" timestamp="1588604780108" />
     <state x="385" y="161" width="670" height="676" key="search.everywhere.popup/0.23.1440.814@0.23.1440.814" timestamp="1588604780108" />
   </component>

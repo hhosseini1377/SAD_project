@@ -81,3 +81,12 @@ def search_doctor(request):
             return render(request, 'patient/search_result.html', context={'doctor': search_result})
 
     return render(request, 'patient/search_doctor.html')
+
+
+def prescriptions(request):
+    if not request.user.is_authenticated:
+        return redirect('users:login')
+    patient = Patient.objects.get(user=request.user)
+    pres = patient.prescriptioninfo_set.all()
+    return render(request, 'patient/prescriptions.html',
+                  context={'prescriptions': pres, 'patient': patient})
