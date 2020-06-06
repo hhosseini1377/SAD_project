@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout
 from .models import Patient
 from .models import disease_record
 from .forms import add_disease_form
+from doctor.models import Doctor
 
 
 def profile_view(request):
@@ -29,7 +30,8 @@ def disease_records_view(request):
     else:
         form = add_disease_form(request.POST)
         if form.is_valid():
-            new_record = disease_record.objects.create(patient=patient, disease_name=form.cleaned_data['disease_record'])
+            new_record = disease_record.objects.create(patient=patient,
+                                                       disease_name=form.cleaned_data['disease_record'])
             new_record.save()
             records.append(new_record.disease_name)
     return redirect('patient:disease_records')
@@ -66,3 +68,16 @@ def add_credit(request):
 
     return render(request, 'patient/add_credit.html')
 
+
+def search_doctor(request):
+    if not request.user.is_authenticated:
+        return redirect('users:login')
+    if request.method == 'GET':
+        if 'doctor_id' not in request.GET:
+            return render(request, 'patient/search_doctor.html')
+        d_id = request.GET['doctor_id']
+        if not Doctor.objects.filter(doctor_id=d_id).count() == 0:
+            search_result = Doctor.objects.get(doctor_id=d_id)
+            return render(request, 'patient/search_result.html', context={'doctor': search_result})
+
+    return render(request, 'patient/search_doctor.html')

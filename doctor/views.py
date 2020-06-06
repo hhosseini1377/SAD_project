@@ -5,8 +5,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.urls import reverse
 
-from .models import Doctor, PrescriptionInfo, Drug, Reservation
-from .forms import DrugForm, reservation_form
+from .models import Doctor, PrescriptionInfo, Drug, Reservation, Patient
+from .forms import DrugForm, reservation_form, PatientForm
 from django.forms import formset_factory
 from persiantools.jdatetime import JalaliDateTime
 
@@ -28,7 +28,30 @@ def contact_us_view(request):
     return render(request, 'doctor/contact_us.html')
 
 
-def make_prescription(request):
+def patient_prescription(request):
+    if not request.user.is_authenticated:
+        return redirect('users:login')
+    elif not Doctor.objects.filter(user=request.user).exists():
+        logout(request)
+        return redirect('users:login')
+
+    doctor = Doctor.objects.get(user=request.user)
+
+    if request.method == 'POST':
+        form = PatientForm(request.POST)
+        if form.is_valid():
+            national_id = form.cleaned_data['national_id']
+            if not Patient.objects.filter(national_id=national_id).exists():
+                return render(request, 'doctor/prescriptions.html', context={'msg': "کد ملی بیمار صحیح نیست"})
+            patient = Patient.objects.get(national_id=national_id)
+            prescriptions = patient.prescriptioninfo_set.all()
+            return render(request, 'doctor/prescriptions.html', context={'prescriptions': prescriptions, 'patient': patient, 'form': form})
+    else:
+        form = PatientForm()
+    return render(request, 'doctor/prescriptions.html', context={'form': form})
+
+
+def make_prescription(request, patient_pk):
     if not request.user.is_authenticated:
         return redirect('users:login')
     elif not Doctor.objects.filter(user=request.user).exists():
@@ -49,7 +72,8 @@ def make_prescription(request):
             formset = DrugFormSet(data=request.POST)
             if formset.is_valid():
                 doctor = Doctor.objects.get(user=request.user)
-                prescription = PrescriptionInfo(author=doctor)
+                patient = Patient.objects.get(national_id=patient_pk)
+                prescription = PrescriptionInfo(author=doctor, patient=patient)
                 prescription.save()
 
                 for form_data in formset.cleaned_data:

@@ -1,17 +1,20 @@
-/*.form_box{*/
-/*    padding: 5px;*/
-/*    margin: 10px;*/
-/*}*/
+.pe_container{
+    font-family: 'Vazir';
+}
+.form_box{
+    padding: 5px;
+    margin: 10px;
+}
 
-/*.pe_right_align{*/
-/*    direction: rtl;*/
-/*    text-align: right;*/
-/*}*/
+.pe_right_align{
+    direction: rtl;
+    text-align: right;
+}
 
-/*.pe_center_align{*/
-/*    direction: rtl;*/
-/*    text-align: center;*/
-/*}*/
+.pe_center_align{
+    direction: rtl;
+    text-align: center;
+}
 
-/*.radio_hidden{*/
-/*}*/
+.radio_hidden{
+}
