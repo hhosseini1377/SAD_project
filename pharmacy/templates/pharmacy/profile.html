@@ -1,0 +1,23 @@
+{% extends 'pharmacy/base_layout.html' %}
+
+{% block content %}
+    <div class="container-fluid" style="direction: rtl; text-align: right">
+        <div class="card" style="width: 18rem">
+                {% load static %}
+                <img class="card-img-top" src={% static "pharmacy/avatar.jpg" %}>
+                <div class="card-body">
+                    <h5 class="card-title">مشخصات داروخانه</h5>
+                </div>
+
+                  <ul class="list-group list-group-flush" style="padding-inline-start: 0">
+                      <li class="list-group-item">{{ pharmacy.name }}</li>
+                      <li class="list-group-item">
+                          صاحب داروخانه:
+                          {{ pharmacy.pharmacist }}</li>
+                  </ul>
+        </div>
+
+    </div>
+
+
+{% endblock %}

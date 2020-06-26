@@ -1,0 +1,60 @@
+{% extends 'pharmacy/base_layout.html' %}
+
+{% block content %}
+    <div class="container-fluid" style="direction: rtl; text-align: right">
+        <div class="jumbotron">
+            <h1 class="display-4">موجودی دارو‌ها</h1>
+            <p class="lead">
+                در این صفحه می‌توانید دارو‌های موجود و تعداد آن‌ها را مشاهده کنید.
+            </p>
+            <hr class="my-4">
+            <p>برای افزایش موجودی دارو‌ها، می‌توانید به صفحه زیر بروید.</p>
+            <p class="lead">
+                <a class="btn btn-outline-primary btn-lg" href="{% url 'pharmacy:add_drug' %}" role="button">افزایش دارو</a>
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="card">
+                    {% load static %}
+                    <img class="card-img-top" src={% static "pharmacy/avatar.jpg" %}>
+                    <div class="card-body">
+                        <h5 class="card-title">مشخصات داروخانه</h5>
+                    </div>
+                    <ul class="list-group list-group-flush" style="padding-inline-start: 0">
+                        <li class="list-group-item">{{ pharmacy.name }}</li>
+                        <li class="list-group-item">
+                          صاحب داروخانه:
+                          {{ pharmacy.pharmacist }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">نام دارو</th>
+                                <th scope="col">شرکت سازنده</th>
+                                <th scope="col">تعداد موجودی</th>
+                            </tr>
+                        </thead>
+                        {% if drugs %}
+                        {% for drug in drugs %}
+                            <tr>
+                                <td>{{ drug.drugName }}</td>
+                                <td>{{ drug.supplier }}</td>
+                                <td>{{ drug.number }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

@@ -1,9 +1,48 @@
-{% extends 'patient/base_layout.html' %}
+{% extends 'pharmacy/base_layout.html' %}
 
 {% block content %}
-    <div class="jumbotron" style="direction: rtl; text-align: right">
-        <h1 class="display-4">مشاهده نسخه‌ها</h1>
-        <p class="lead">در این صفحه می‌توانید نسخه‌های خود را مشاهده کنید.</p>
+    <div class="container-fluid" style="direction: rtl; text-align: right">
+        <div class="jumbotron">
+            <h1 class="display-4">جستجو نسخه‌ها</h1>
+            <p class="lead">
+                در این صفحه می‌توانید نسخه‌های یک بیمار را مشاهده و در میان آن‌ها جستجو کنید.
+            </p>
+            <hr class="my-4">
+            <p>برای جستجو کافیست کد ملی بیمار را وارد و دکمه جستجو را فشار دهید.</p>
+        </div>
+
+        {% if form %}
+            <div class="container">
+                {% if msg %}
+                    <div class="alert alert-danger">
+                        {{ msg }}
+                    </div>
+                {% endif %}
+                <form method="post" class="form" style="align-content: center">
+                    {% csrf_token %}
+
+                    {% if form.nationalId.errors %}
+                        <div class="control-group error">
+                            <label class="control-label">کد ملی بیمار</label>
+                            <div class="controls">{{ form.nationalId }}
+                                <span class="help-inline">
+                                    {% for error in  form.nationalId.errors %}{{ error }}{% endfor %}
+                                </span>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="form-group">
+                            <label class="form-control-label">کد ملی بیمار</label>
+                            {{ form.nationalId }}
+                        </div>
+                    {% endif %}
+
+                    <input type="submit" value="جستجو" class="btn btn-outline-primary" style="margin: 2px">
+                </form>
+            </div>
+
+        {%  endif %}
+
     </div>
     <div class="container-fluid" style="direction: rtl; text-align: right">
         {% if patient %}
@@ -23,6 +62,7 @@
                             <h5 class="card-title">مشخصات بیمار</h5>
                         </div>
 
+                        {% if patient %}
                           <ul class="list-group list-group-flush" style="padding-inline-start: 0">
                               <li class="list-group-item">{{ patient.first_name }} {{ patient.last_name }}</li>
                               <li class="list-group-item">
@@ -35,6 +75,7 @@
                                   شماره موبایل:
                                   {{ patient.mobile_number }}</li>
                           </ul>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-10">
@@ -70,6 +111,5 @@
         {% endif %}
 
     </div>
-
 
 {% endblock %}

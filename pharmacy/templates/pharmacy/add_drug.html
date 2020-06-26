@@ -1,0 +1,81 @@
+{% extends 'pharmacy/base_layout.html' %}
+
+{% block content %}
+    <div class="container-fluid" style="direction: rtl; text-align: right">
+        <div class="jumbotron" >
+            <h1 class="display-4">اضافه‌کردن دارو</h1>
+            <p class="lead">
+                در این صفحه می‌توانید به موجودی دارو‌ها اضافه کنید.
+            </p>
+            <hr class="my-4">
+            <p>برای افزایش موجودی، نام، شرکت سازنده و تعداد دارو را وارد کنید. </p>
+        </div>
+
+        {% if form %}
+            <div class="container">
+                {% if msg %}
+                    <div class="alert alert-success">
+                        {{ msg }}
+                    </div>
+                {% endif %}
+                <form method="post" class="form">
+                    {% csrf_token %}
+
+                    {% if form.drugName.errors %}
+                        <div class="control-group error">
+                            <label class="control-label">نام دارو</label>
+                            <div class="controls">{{ form.drugName }}
+                                <span class="help-inline">
+                                    {% for error in  form.drugName.errors %}{{ error }}{% endfor %}
+                                </span>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="form-group">
+                            <label class="form-control-label">نام دارو</label>
+                            {{ form.drugName }}
+                        </div>
+                    {% endif %}
+
+                    {% if form.supplier.errors %}
+                        <div class="control-group error">
+                            <label class="control-label">شرکت سازنده</label>
+                            <div class="controls">{{ form.supplier }}
+                                <span class="help-inline">
+                                    {% for error in  form.supplier.errors %}{{ error }}{% endfor %}
+                                </span>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="form-group">
+                            <label class="form-control-label">شرکت سازنده</label>
+                            {{ form.supplier }}
+                        </div>
+                    {% endif %}
+
+                    {% if form.drugNo %}
+                        <div class="control-group error">
+                            <label class="control-label">تعداد</label>
+                            <div class="controls">{{ form.drugNo }}
+                                <span class="help-inline">
+                                    {% for error in  form.drugNo.errors %}{{ error }}{% endfor %}
+                                </span>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="form-group">
+                            <label class="form-control-label">تعداد</label>
+                            {{ form.drugNo }}
+                        </div>
+                    {% endif %}
+                    <div style="text-align: left; margin-top: 1rem">
+                        <input type="submit" value="اضافه کردن" class="btn btn-outline-primary">
+                    </div>
+                </form>
+            </div>
+
+        {%  endif %}
+    </div>
+
+
+{% endblock %}
