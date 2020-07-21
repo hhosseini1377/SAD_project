@@ -55,9 +55,14 @@
             {% for reservation in reservations %}
                 <li class="list-group-item">
                     ساعت {{ reservation.start_time.hour }}:{{ reservation.start_time.minute }} تا {{ reservation.end_time.hour }}:{{ reservation.end_time.minute }}
-                    <a style="padding-right: 20px; color: red;" href="{% url 'doctor:remove_reservation' reservation_id=reservation.id %}">حذف</a>
-                    {% if not reservation.patient == None %}
                     <p style="color: grey; display: inline; padding-right: 20px;">رزرو شده</p>
+                    {% if reservation.patient != None %}
+                        <a style="padding-right: 20px; color: green;" href="{% url 'doctor:prescriptions' patient_id=reservation.patient.pk  %}">مشاهده بیمار</a>
+                    {% endif %}
+                    <a style="padding-right: 20px; color: red;" href="{% url 'doctor:remove_reservation' reservation_id=reservation.id %}">حذف</a>
+
+                    {% if not reservation.patient == None %}
+
                     {% endif %}
                 </li>
             {% endfor %}
