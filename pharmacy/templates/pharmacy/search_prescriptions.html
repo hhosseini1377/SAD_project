@@ -21,19 +21,19 @@
                 <form method="post" class="form" style="align-content: center">
                     {% csrf_token %}
 
-                    {% if form.nationalId.errors %}
+                    {% if form.prescriptionId.errors %}
                         <div class="control-group error">
-                            <label class="control-label">کد ملی بیمار</label>
-                            <div class="controls">{{ form.nationalId }}
+                            <label class="control-label">شناسه نسخه</label>
+                            <div class="controls">{{ form.prescriptionId }}
                                 <span class="help-inline">
-                                    {% for error in  form.nationalId.errors %}{{ error }}{% endfor %}
+                                    {% for error in  form.prescriptionId.errors %}{{ error }}{% endfor %}
                                 </span>
                             </div>
                         </div>
                     {% else %}
                         <div class="form-group">
-                            <label class="form-control-label">کد ملی بیمار</label>
-                            {{ form.nationalId }}
+                            <label class="form-control-label">شناسه نسخه</label>
+                            {{ form.prescriptionId }}
                         </div>
                     {% endif %}
 
@@ -45,7 +45,7 @@
 
     </div>
     <div class="container-fluid" style="direction: rtl; text-align: right">
-        {% if patient %}
+        {% if prescription %}
             {% load static %}
             <div class="row">
                 <h4 class="col-12" style="text-align: center;">
@@ -79,33 +79,36 @@
                     </div>
                 </div>
                 <div class="col-10">
-                    {% for prescription in prescriptions %}
                         <div class="container bg-light border rounded" style="padding: 2%; margin: 1%">
-                                <h5>
-                                    کد پزشک:
-                                    {{ prescription.author.doctor_id }}
-                                </h5>
-                                {% for drug in prescription.drug_set.all %}
-                                    <div class="card mb-3 w-50">
-                                        <ul class="list-group list-group-flush" style="padding-inline-start: 0">
-                                            <li class="list-group-item">
-                                               نام دارو:
-                                                {{ drug.drugName }}
-                                            </li>
-                                            <li class="list-group-item">
-                                                    تعداد:
-                                                {{ drug.number }}
-                                            </li>
-                                            <li class="list-group-item">
-                                                نحوه مصرف:
-                                                {{ drug.usage }}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                {% endfor %}
+                            <h5>
+                                شناسه نسخه:
+                                {{ prescription.id }}
+                            </h5>
+                            <h5>
+                                کد پزشک:
+                                {{ prescription.author.doctor_id }}
+                            </h5>
+                            {% for drug in prescription.drug_set.all %}
+                                <div class="card mb-3 w-50">
+                                    <ul class="list-group list-group-flush" style="padding-inline-start: 0">
+                                        <li class="list-group-item">
+                                           نام دارو:
+                                            {{ drug.drugName }}
+                                        </li>
+                                        <li class="list-group-item">
+                                                تعداد:
+                                            {{ drug.number }}
+                                        </li>
+                                        <li class="list-group-item">
+                                            نحوه مصرف:
+                                            {{ drug.usage }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            {% endfor %}
 
-                        </div>
-                    {% endfor %}
+                    </div>
+
                 </div>
             </div>
         {% endif %}

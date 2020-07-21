@@ -20,29 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5fd1a0c-ed89-412a-8cb2-c28d8419979a" name="Default Changelist" comment="doctor can view and write prescription for any patient. somewhat ok ui.">
-      <change afterPath="$PROJECT_DIR$/pharmacy/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy/static/pharmacy/avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/add_drug.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/base_layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/drug_inventory.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/search_prescriptions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pharmacy/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/migrations/0002_auto_20200607_1101.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/patient/templates/patient/prescriptions.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/prescriptions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacy/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacy/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacy/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacy/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacy/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacy/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacy/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacy/templates/pharmacy/search_prescriptions.html" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/search_prescriptions.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pharmacy/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacy/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +65,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="sprint2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -240,13 +227,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added prescription page. first commit :)" />

@@ -96,7 +96,6 @@ def prescriptions(request):
                   context={'prescriptions': pres, 'patient': patient})
 
 
-
 def reservation(request, doctor_id, day):
     doctor = Doctor.objects.get(pk=doctor_id)
     patient = Patient.objects.get(user=request.user)
