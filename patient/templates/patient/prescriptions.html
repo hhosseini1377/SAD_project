@@ -41,6 +41,10 @@
                     {% for prescription in prescriptions %}
                         <div class="container bg-light border rounded" style="padding: 2%; margin: 1%">
                                 <h5>
+                                    شناسه نسخه:
+                                    {{ prescription.id }}
+                                </h5>
+                                <h5>
                                     کد پزشک:
                                     {{ prescription.author.doctor_id }}
                                 </h5>
