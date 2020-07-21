@@ -20,5 +20,5 @@ class reservation_form(forms.Form):
 
 
 class PatientForm(forms.Form):
-    national_id = forms.IntegerField(min_value=0, max_value=99999999, widget=forms.NumberInput(attrs={'class': 'form-control'}))
+    national_id = forms.IntegerField(min_value=1, max_value=9999999999, widget=forms.NumberInput(attrs={'class': 'form-control'}))
 

@@ -10,10 +10,9 @@ def login_view(request):
     if request.user.is_authenticated:
         if Patient.objects.filter(user=request.user).exists():
             return redirect('patient:profile')
-        # elif Pharmacy.objects.filter(user=request.user).exists():
-        #     pass
+        elif Pharmacy.objects.filter(user=request.user).exists():
+            return redirect('pharmacy:profile')
         elif Doctor.objects.filter(user=request.user).exists():
-            print('s')
             return redirect('doctor:profile')
     logout(request)
 
@@ -27,7 +26,7 @@ def login_view(request):
             elif Doctor.objects.filter(user=request.user).exists():
                 return redirect('doctor:profile')
             elif Pharmacy.objects.filter(user=request.user).exists():
-                pass
+                return redirect('pharmacy:profile')
         else:
             pass
 

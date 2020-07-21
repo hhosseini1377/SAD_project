@@ -20,14 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5fd1a0c-ed89-412a-8cb2-c28d8419979a" name="Default Changelist" comment="doctor can view and write prescription for any patient. somewhat ok ui.">
-      <change afterPath="$PROJECT_DIR$/patient/templates/patient/prescriptions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy/static/pharmacy/avatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/add_drug.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/base_layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/drug_inventory.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy/templates/pharmacy/search_prescriptions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pharmacy/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/migrations/0002_auto_20200607_1101.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/prescriptions.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/prescriptions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacy/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacy/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacy/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacy/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacy/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacy/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacy/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,6 +178,7 @@
       <workItem from="1588663771398" duration="11749000" />
       <workItem from="1590523183324" duration="12884000" />
       <workItem from="1591445776277" duration="1978000" />
+      <workItem from="1595311688434" duration="788000" />
     </task>
     <task id="LOCAL-00001" summary="added prescription page. first commit :)">
       <created>1588633194257</created>
@@ -217,19 +233,20 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added prescription page. first commit :)" />
@@ -271,16 +288,19 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="247" y="116" width="1482" height="872" key="MergeDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1591445887237" />
-    <state x="475" y="187" key="SettingsEditor" timestamp="1588605309674">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="317" y="114" key="SettingsEditor" timestamp="1595311709280">
+      <screen x="0" y="23" width="1440" height="813" />
     </state>
+    <state x="317" y="114" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1595311709280" />
     <state x="475" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1588605309674" />
     <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1590536045971">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1590536045971" />
-    <state x="399" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1588604780108" />
-    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.813@0.23.1440.813" timestamp="1588604780108" />
+    <state x="399" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1595311688897">
+      <screen x="0" y="23" width="1440" height="813" />
+    </state>
+    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.813@0.23.1440.813" timestamp="1595311688897" />
     <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1588604780108" />
     <state x="399" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1588604780108" />
     <state x="758" y="458" width="461" height="188" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591445868560">
