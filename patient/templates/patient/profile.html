@@ -2,21 +2,58 @@
 
 {% block content %}
     {% load static %}
-    <div class="row" style="direction: rtl">
-        <div class="col-auto">
-           <div class = "profile">
-                <ul class = "list-group">
-                    <li class = "list-group-item active" style="text-align: right">پروفایل شما</li>
-                    <li class = "list-group-item" style="text-align: right"> نام: {{ patient.first_name }}</li>
-                    <li class = "list-group-item" style="text-align: right"> نام خانوادگی: {{ patient.last_name }}</li>
-                    <li class = "list-group-item" style="text-align: right"> {{ patient.email }} :آدرس ایمیل </li>
-                    <li class = "list-group-item" style="text-align: right">شماره تلفن: {{ patient.phone_number }}</li>
-                    <li class = "list-group-item" style="text-align: right">شماره موبایل: {{ patient.mobile_number }} </li>
-                </ul>
+    <div class="row no-gutters" style="direction: rtl">
+        <div class="row no-gutters">
+            <div class="col-10">
+                <div class="card bg-transparent" style="text-align: right">
+                    <div class="row no-gutters">
+                       <div class="col-3">
+                          <img class="card-img-top" src={% static "patient/avatar.png" %}>
+                       </div>
+                        <div class="col-9">
+                            <div class="card-body">
+                                <h5 class="card-title">پروفایل شما</h5>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-group list-group-flush" style="padding-inline-start: 0;">
+                                            <li class="list-group-item">
+                                                نام و نام‌خانوادگی:
+                                                {{ patient.first_name }} {{ patient.last_name }}</li>
+                                            <li class="list-group-item">
+                                              کد ملی:
+                                              {{ patient.national_id }}</li>
+                                            <li class="list-group-item">
+                                              تاریخ تولد:
+                                              {{ patient.date_of_birth }}</li>
+                                            <li class="list-group-item">
+                                              شماره موبایل:
+                                              {{ patient.mobile_number }}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-group list-group-flush" style="padding-inline-start: 0;">
+                                            <li class="list-group-item">
+                                              آدرس ایمیل:
+                                              {{ patient.email }}
+                                            </li>
+                                            <li class="list-group-item">
+                                              تلفن:
+                                              {{ patient.phone_number }}
+                                            </li>
+                                            <li class="list-group-item">
+                                              موبایل:
+                                              {{ patient.mobile_number }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-auto">
-                <div class="card" style="width: 18rem; text-align: right; direction: rtl">
+            <div class="col-2">
+                <div class="card" style="text-align: right; direction: rtl">
                     <img class="card-img-top" src="{% static "patient/credit.png" %}">
                     <div class="card-body">
                         <h5 class="card-title">اعتبار:
@@ -26,6 +63,21 @@
                         <a href="{% url 'patient:add_credit' %}" class="btn btn-outline-primary">افزایش اعتبار</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="container bg-light border" style="text-align: right">
+                <div class="container"><h4 style="margin-top: 8px">پیام‌ها</h4></div>
+                <hr>
+                <div class="alert alert-info" role="alert">
+                    <h4 class="alert-heading">کنسل شدن وقت پزشک</h4>
+                    <p>وقت گرفته شده در تاریخ ... توسط پزشک شما کنسل شده است.</p>
+                    <hr>
+                    <div style="text-align: left">
+                        <input type="submit" name="action" value="متوجه شدم!" class="btn btn-danger" style="margin: 2px">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
