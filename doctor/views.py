@@ -149,3 +149,8 @@ def delete_reservation(request, reservation_id):
     Reservation.objects.get(pk=reservation_id).delete()
     return redirect('doctor:reservation', day=0)
 
+
+def reservation_list(request):
+    doctor = Doctor.objects.get(user=request.user)
+    reservation_list = list(Reservation.objects.filter(doctor=doctor).order_by('reservation').order_by('start_time'))
+    return render(request, 'doctor/reservation_list.html', {'reservation_list': reservation_list})

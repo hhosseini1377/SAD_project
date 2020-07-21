@@ -6,6 +6,8 @@ from patient.models import Patient
 
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=20, blank=True)
+    last_name = models.CharField(max_length=20, blank=True)
     doctor_id = models.IntegerField(primary_key=True)
     date_of_birth = models.DateField()
     degrees = models.CharField(max_length=75)
@@ -29,7 +31,3 @@ class Reservation(models.Model):
     reservation_date = models.DateField(null=True)
     start_time = models.TimeField(null=True)
     end_time = models.TimeField(null=True)
-
-
-
-

@@ -38,7 +38,10 @@
                 <a class="nav-link" href="{% url 'doctor:prescriptions' %}">نسخه‌ها</a>
             </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'doctor:reservation' day=0 %}">زمان‌های رزرو</a>
+            <a class="nav-link" href="{% url 'doctor:reservation' day=0 %}">لیست رزرو</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'doctor:reservation_list' %}">سوابق رزرو </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'doctor:contact_us' %}">تماس با ما</a>

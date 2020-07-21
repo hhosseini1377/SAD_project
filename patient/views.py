@@ -5,6 +5,10 @@ from .models import Patient
 from .models import disease_record
 from .forms import add_disease_form
 from doctor.models import Doctor
+from doctor.models import Reservation
+from persiantools.jdatetime import JalaliDateTime
+import datetime
+
 
 
 def profile_view(request):
@@ -78,7 +82,7 @@ def search_doctor(request):
         d_id = request.GET['doctor_id']
         if not Doctor.objects.filter(doctor_id=d_id).count() == 0:
             search_result = Doctor.objects.get(doctor_id=d_id)
-            return render(request, 'patient/search_result.html', context={'doctor': search_result})
+            return redirect('patient:reservation', doctor_id = d_id, day=0)
 
     return render(request, 'patient/search_doctor.html')
 
@@ -90,3 +94,52 @@ def prescriptions(request):
     pres = patient.prescriptioninfo_set.all()
     return render(request, 'patient/prescriptions.html',
                   context={'prescriptions': pres, 'patient': patient})
+
+
+
+def reservation(request, doctor_id, day):
+    doctor = Doctor.objects.get(pk=doctor_id)
+    patient = Patient.objects.get(user=request.user)
+    week_day = {
+        0: 'شنبه',
+        1: 'یک‌شنبه',
+        2: 'دوشنبه',
+        3: 'سه‌شنبه',
+        4: 'چهارشنبه',
+        5: 'پنج‌شنبه',
+        6: 'جمعه',
+    }
+    if not request.user.is_authenticated:
+        return redirect('users:login')
+    elif not Patient.objects.filter(user=request.user).exists():
+        logout(request)
+        return redirect('users:login')
+    reservation = Reservation.objects.filter(reservation_date=datetime.date.today()+datetime.timedelta(days=int(day)), doctor=doctor).order_by('start_time')
+    reservations = list(reservation)
+    reservation_date = datetime.date.today()+datetime.timedelta(days=int(day))
+    jalali_time = JalaliDateTime.to_jalali(year=reservation_date.year, month=reservation_date.month, day=reservation_date.day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None)
+    week_days = []
+    for i in range(7):
+        week_days.append(week_day.get((i+datetime.date.today().weekday() + 2) % 7))
+    future_dates = []
+    for i in range(7):
+        reserve_date = datetime.date.today()+datetime.timedelta(days=i)
+        future_dates.append(JalaliDateTime.to_jalali(year=reserve_date.year, month=reserve_date.month, day=reserve_date.day,
+                                                     hour=0, minute=0, second=0, microsecond=0, tzinfo=None))
+
+
+    return render(request, 'patient/reservation.html', {'reservations': reservations, 'date': jalali_time,
+                                                       'week_days': week_days, 'reserve_date': future_dates, 'day': day, 'doctor': doctor, 'patient' : patient})
+
+
+def reserve_time(request, reservation_id, doctor_id):
+    patient = Patient.objects.get(user=request.user)
+    reservation = Reservation.objects.get(pk=reservation_id)
+    reservation.patient = patient
+    reservation.save()
+    return redirect('patient:reservation', doctor_id=doctor_id, day=0)
+
+def reservation_list(request):
+    patient = Patient.objects.get(user=request.user)
+    reservation_list = list(Reservation.objects.filter(patient=patient).order_by('reservation').order_by('start_time'))
+    return render(request, 'patient/reservation_list.html', {'reservation_list': reservation_list})

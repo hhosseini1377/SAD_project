@@ -1,0 +1,27 @@
+{% extends 'patient/base_layout.html' %}
+
+{% block content %}
+
+    <h1 style="text-align: right; padding:10px">لیست رزرو‌ها</h1>
+
+    <table class="table table-striped" style="text-align: right">
+<thead>
+  <tr>
+    <th scope="col">زمان پایان</th>
+    <th scope="col">زمان شروع</th>
+    <th scope="col">تاریخ</th>
+    <th scope="col">پزشک</th>
+  </tr>
+</thead>
+  <tbody>
+    {% for reservation in reservation_list %}
+      <tr>
+        <td>{{reservation.end_time.hour}}:{{reservation.end_time.minute}}</td>
+        <td>{{reservation.start_time.hour}}:{{reservation.start_time.minute}}</td>
+        <td>{{reservation.reservation_date.year}}-{{reservation.reservation_date.month}}-{{reservation.reservation_date.day}}</td>
+        <td>{{reservation.doctor.first_name}} {{reservation.doctor.last_name}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+
+{% endblock %}

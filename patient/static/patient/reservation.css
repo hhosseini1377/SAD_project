@@ -1,0 +1,19 @@
+.reservations{
+    padding-right: 10px;
+    text-align: right;
+    float: right
+}
+
+.disease_records p{
+    display: inline;
+    padding-left: 10px
+}
+
+.page-item{
+    text-align: center;
+}
+
+.add_reservation{
+    float: right;
+    padding-right: 10px;
+}
