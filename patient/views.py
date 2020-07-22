@@ -1,14 +1,12 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from .models import Patient
 from .models import disease_record
 from .forms import add_disease_form
-from doctor.models import Doctor
+from doctor.models import Doctor, Delete_notifications
 from doctor.models import Reservation
 from persiantools.jdatetime import JalaliDateTime
 import datetime
-
 
 
 def profile_view(request):
@@ -18,7 +16,26 @@ def profile_view(request):
         logout(request)
         return redirect('users:login')
     patient = Patient.objects.get(user=request.user)
-    return render(request, 'patient/profile.html', {'patient': patient})
+    deleted_reservations = list(Delete_notifications.objects.filter(patient=patient))
+
+    next_reservations = Reservation.objects.filter(reservation_date__gte=datetime.date.today(),
+                                                   patient=patient).order_by('reservation_date', 'start_time')
+    next_reservation = None
+    current_reservation = None
+    for next_reserve in next_reservations:
+        if next_reserve.reservation_date == datetime.date.today() and next_reserve.start_time < datetime.datetime.now().time() < next_reserve.end_time:
+            current_reservation = next_reserve
+            break
+        elif next_reserve.reservation_date == datetime.date.today() and next_reserve.start_time > datetime.datetime.now().time():
+            next_reservation = next_reserve
+            break
+        elif next_reserve.reservation_date != datetime.date.today():
+            next_reservation = next_reserve
+            break
+
+    return render(request, 'patient/profile.html', {'patient': patient, 'deleted_reservations': deleted_reservations,
+                                                    'next_reservation': next_reservation,
+                                                    'current_reservation': current_reservation})
 
 
 def disease_records_view(request):
@@ -82,7 +99,7 @@ def search_doctor(request):
         d_id = request.GET['doctor_id']
         if not Doctor.objects.filter(doctor_id=d_id).count() == 0:
             search_result = Doctor.objects.get(doctor_id=d_id)
-            return redirect('patient:reservation', doctor_id = d_id, day=0)
+            return redirect('patient:reservation', doctor_id=d_id, day=0)
 
     return render(request, 'patient/search_doctor.html')
 
@@ -113,22 +130,26 @@ def reservation(request, doctor_id, day):
     elif not Patient.objects.filter(user=request.user).exists():
         logout(request)
         return redirect('users:login')
-    reservation = Reservation.objects.filter(reservation_date=datetime.date.today()+datetime.timedelta(days=int(day)), doctor=doctor).order_by('start_time')
+    reservation = Reservation.objects.filter(reservation_date=datetime.date.today() + datetime.timedelta(days=int(day)),
+                                             doctor=doctor).order_by('start_time')
     reservations = list(reservation)
-    reservation_date = datetime.date.today()+datetime.timedelta(days=int(day))
-    jalali_time = JalaliDateTime.to_jalali(year=reservation_date.year, month=reservation_date.month, day=reservation_date.day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None)
+    reservation_date = datetime.date.today() + datetime.timedelta(days=int(day))
+    jalali_time = JalaliDateTime.to_jalali(year=reservation_date.year, month=reservation_date.month,
+                                           day=reservation_date.day, hour=0, minute=0, second=0, microsecond=0,
+                                           tzinfo=None)
     week_days = []
     for i in range(7):
-        week_days.append(week_day.get((i+datetime.date.today().weekday() + 2) % 7))
+        week_days.append(week_day.get((i + datetime.date.today().weekday() + 2) % 7))
     future_dates = []
     for i in range(7):
-        reserve_date = datetime.date.today()+datetime.timedelta(days=i)
-        future_dates.append(JalaliDateTime.to_jalali(year=reserve_date.year, month=reserve_date.month, day=reserve_date.day,
-                                                     hour=0, minute=0, second=0, microsecond=0, tzinfo=None))
-
+        reserve_date = datetime.date.today() + datetime.timedelta(days=i)
+        future_dates.append(
+            JalaliDateTime.to_jalali(year=reserve_date.year, month=reserve_date.month, day=reserve_date.day,
+                                     hour=0, minute=0, second=0, microsecond=0, tzinfo=None))
 
     return render(request, 'patient/reservation.html', {'reservations': reservations, 'date': jalali_time,
-                                                       'week_days': week_days, 'reserve_date': future_dates, 'day': day, 'doctor': doctor, 'patient' : patient})
+                                                        'week_days': week_days, 'reserve_date': future_dates,
+                                                        'day': day, 'doctor': doctor, 'patient': patient})
 
 
 def reserve_time(request, reservation_id, doctor_id):
@@ -138,7 +159,13 @@ def reserve_time(request, reservation_id, doctor_id):
     reservation.save()
     return redirect('patient:reservation', doctor_id=doctor_id, day=0)
 
+
 def reservation_list(request):
     patient = Patient.objects.get(user=request.user)
     reservation_list = list(Reservation.objects.filter(patient=patient).order_by('reservation').order_by('start_time'))
     return render(request, 'patient/reservation_list.html', {'reservation_list': reservation_list})
+
+
+def delete_notification(request, notification_id):
+    Delete_notifications.objects.get(pk=notification_id).delete()
+    return redirect('patient:profile')

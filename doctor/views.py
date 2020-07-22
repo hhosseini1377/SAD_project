@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.urls import reverse
 
-from .models import Doctor, PrescriptionInfo, Drug, Reservation, Patient
+from .models import Doctor, PrescriptionInfo, Drug, Reservation, Patient, Delete_notifications
 from .forms import DrugForm, reservation_form, PatientForm
 from django.forms import formset_factory
 from persiantools.jdatetime import JalaliDateTime
@@ -144,3 +144,12 @@ def reservation_list(request):
     doctor = Doctor.objects.get(user=request.user)
     reservation_list = list(Reservation.objects.filter(doctor=doctor).exclude(patient=None).order_by('reservation').order_by('start_time'))
     return render(request, 'doctor/reservation_list.html', {'reservation_list': reservation_list})
+
+
+def delete_patient_reservation(request, reservation_id):
+    reservation = Reservation.objects.get(pk=reservation_id)
+    doctor = Doctor.objects.get(user=request.user)
+    Delete_notifications.objects.create(patient=reservation.patient, date=reservation.reservation_date, doctor=doctor)
+    reservation.patient = None
+    reservation.save()
+    return redirect('doctor:reservation', day=0)

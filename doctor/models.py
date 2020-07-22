@@ -31,3 +31,9 @@ class Reservation(models.Model):
     reservation_date = models.DateField(null=True)
     start_time = models.TimeField(null=True)
     end_time = models.TimeField(null=True)
+
+
+class Delete_notifications(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True, blank=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True, blank=True)
+    date = models.DateField(auto_now_add=True)

@@ -59,6 +59,7 @@
                     {% if reservation.patient != None %}
                         <p style="color: grey; display: inline; padding-right: 20px;">رزرو شده</p>
                         <a style="padding-right: 20px; color: green;" href="{% url 'doctor:prescriptions' patient_id=reservation.patient.pk  %}">مشاهده بیمار</a>
+                        <a style="padding-right: 20px; color: red;" href="{% url 'doctor:remove_user_reservation' reservation_id=reservation.id  %}">حذف بیمار</a>
                     {% endif %}
                     <a style="padding-right: 20px; color: red;" href="{% url 'doctor:remove_reservation' reservation_id=reservation.id %}">حذف</a>
 

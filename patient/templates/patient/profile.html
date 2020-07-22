@@ -37,12 +37,8 @@
                                               {{ patient.email }}
                                             </li>
                                             <li class="list-group-item">
-                                              تلفن:
+                                              شماره تلفن:
                                               {{ patient.phone_number }}
-                                            </li>
-                                            <li class="list-group-item">
-                                              موبایل:
-                                              {{ patient.mobile_number }}
                                             </li>
                                         </ul>
                                     </div>
@@ -54,7 +50,7 @@
             </div>
             <div class="col-2">
                 <div class="card" style="text-align: right; direction: rtl">
-                    <img class="card-img-top" src="{% static "patient/credit.png" %}">
+{#                    <img class="card-img-top" src="{% static "patient/credit.png" %}">#}
                     <div class="card-body">
                         <h5 class="card-title">اعتبار:
                         {{ patient.credit }}
@@ -65,17 +61,44 @@
                 </div>
             </div>
         </div>
+        {% if deleted_reservations %}
         <div class="row no-gutters">
             <div class="container bg-light border" style="text-align: right">
                 <div class="container"><h4 style="margin-top: 8px">پیام‌ها</h4></div>
                 <hr>
-                <div class="alert alert-info" role="alert">
+                {% for reservation in deleted_reservations %}
+                    <div class="alert alert-info" role="alert">
                     <h4 class="alert-heading">کنسل شدن وقت پزشک</h4>
-                    <p>وقت گرفته شده در تاریخ ... توسط پزشک شما کنسل شده است.</p>
+                    <p> زمان رزرو شده توسط شما در تاریخ {{reservation.date.year}}-{{reservation.date.month}}-{{reservation.date.day}}  توسط پزشک {{ reservation.doctor.first_name }} {{ reservation.doctor.last_name }} حذف شد</p>
                     <hr>
                     <div style="text-align: left">
-                        <input type="submit" name="action" value="متوجه شدم!" class="btn btn-danger" style="margin: 2px">
+                        <a href="{% url 'patient:delete_notification'  notification_id=reservation.pk%}" style="color: red">متوجه شدم!</a>
                     </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+     {% endif %}
+        <div class="row no-gutters">
+            <div class="container bg-light border" style="text-align: right">
+                {% if next_reservation %}
+                <div class="container"><h4 style="margin-top: 8px">زمان رزرو بعدی</h4></div>
+                {% elif current_reservation %}
+                <div class="container"><h4 style="margin-top: 8px">زمان رزرو فعلی</h4></div>
+                {% else %}
+                    <div class="container"><h4 style="margin-top: 8px">زمان رزرو بعدی</h4></div>
+                {% endif %}
+                <hr>
+                    <div class="alert alert-info" role="alert">
+                    {% if next_reservation %}
+                        <p>زمان رزرو بعدی شما تاریخ {{next_reservation.reservation_date.year}}-{{next_reservation.reservation_date.month}}-{{next_reservation.reservation_date.day}} از ساعت {{ next_reservation.start_time.hour  }}:{{ next_reservation.start_time.minute }} تا ساعت {{ next_reservation.end_time.hour }}:{{ next_reservation.end_time.minute }} توسط پزشک {{ next_reservation.doctor.first_name }} {{ next_reservation.doctor.last_name }} می‌باشد.</p>
+                    {% elif current_reservation %}
+                        <p>شما در حال حاضر با پزشک {{ current_reservation.doctor.first_name }} {{ current_reservation.doctor.last_name }} زمان ملاقات دارید.</p>
+                    {% else %}
+                        <p> شما زمان رزرو فعالی نداید</p>
+                    {% endif %}
+                    <hr>
                 </div>
             </div>
         </div>

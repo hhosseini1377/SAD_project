@@ -11,5 +11,7 @@ urlpatterns = [
     path('prescriptions/<patient_id>/', views.patient_prescription, name='prescriptions'),
     path('reservation/<day>/', views.reservation_times, name='reservation'),
     path('remove_reservation/<reservation_id>/', views.delete_reservation, name='remove_reservation'),
-    path('reservation_list/', views.reservation_list, name = 'reservation_list'),
+    path('reservation_list/', views.reservation_list, name='reservation_list'),
+    path('delete_user_reservation/<reservation_id>/', views.delete_patient_reservation, name='remove_user_reservation'),
+
 ]

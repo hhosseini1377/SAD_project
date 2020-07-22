@@ -24,7 +24,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/templates/doctor/reservation.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/templates/doctor/reservation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/base_layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patient/templates/patient/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/reservation_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/reservation_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +97,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -163,6 +174,10 @@
       <workItem from="1595311688434" duration="788000" />
       <workItem from="1595345476015" duration="2781000" />
       <workItem from="1595348273787" duration="1206000" />
+      <workItem from="1595349914980" duration="4966000" />
+      <workItem from="1595408067385" duration="1755000" />
+      <workItem from="1595416224983" duration="36000" />
+      <workItem from="1595416428461" duration="5040000" />
     </task>
     <task id="LOCAL-00001" summary="added prescription page. first commit :)">
       <created>1588633194257</created>
@@ -283,21 +298,21 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="247" y="116" width="1482" height="872" key="MergeDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1595348173425" />
-    <state x="317" y="114" key="SettingsEditor" timestamp="1595311709280">
+    <state x="184" y="114" key="SettingsEditor" timestamp="1595416488787">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
-    <state x="317" y="114" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1595311709280" />
+    <state x="184" y="114" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1595416488787" />
     <state x="475" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1588605309674" />
     <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1595323952594">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1595323952594" />
-    <state x="399" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1595311688897">
-      <screen x="0" y="23" width="1440" height="813" />
+    <state x="399" y="264" key="com.intellij.ide.util.TipDialog" timestamp="1595408069408">
+      <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.813@0.23.1440.813" timestamp="1595311688897" />
+    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.813@0.23.1440.813" timestamp="1595349915473" />
     <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1588604780108" />
-    <state x="399" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1588604780108" />
+    <state x="399" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1595408069408" />
     <state x="758" y="458" width="471" height="188" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595347624325">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
