@@ -19,13 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5fd1a0c-ed89-412a-8cb2-c28d8419979a" name="Default Changelist" comment="minor bug fixes. Pharmacy can view prescriptions using their id.">
+    <list default="true" id="a5fd1a0c-ed89-412a-8cb2-c28d8419979a" name="Default Changelist" comment="Patient now can search for doctors.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/templates/doctor/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/templates/doctor/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctor/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/migrations/0002_delete_notifications.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/migrations/0003_auto_20200721_1947.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor/migrations/0004_delete_notifications_doctor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient/templates/patient/search_doctor.html" beforeDir="false" afterPath="$PROJECT_DIR$/patient/templates/patient/search_doctor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacy/migrations/0001_initial.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,8 +93,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -164,12 +168,9 @@
       <workItem from="1591445776277" duration="1978000" />
       <workItem from="1595311688434" duration="788000" />
       <workItem from="1595345476015" duration="2781000" />
-      <workItem from="1595348273787" duration="1206000" />
-      <workItem from="1595349914980" duration="4966000" />
-      <workItem from="1595408067385" duration="1755000" />
-      <workItem from="1595416224983" duration="36000" />
-      <workItem from="1595416428461" duration="5040000" />
-      <workItem from="1595494668605" duration="5575000" />
+      <workItem from="1595348273787" duration="2247000" />
+      <workItem from="1595511720412" duration="13450000" />
+      <workItem from="1595538569916" duration="1901000" />
     </task>
     <task id="LOCAL-00001" summary="added prescription page. first commit :)">
       <created>1588633194257</created>
@@ -227,7 +228,21 @@
       <option name="project" value="LOCAL" />
       <updated>1595323950706</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="patient first page template.">
+      <created>1595349541263</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1595349541263</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Patient now can search for doctors.">
+      <created>1595532693232</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1595532693232</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +268,9 @@
     <MESSAGE value="starter code for sprint 3" />
     <MESSAGE value="doctor can view and write prescription for any patient. somewhat ok ui." />
     <MESSAGE value="minor bug fixes. Pharmacy can view prescriptions using their id." />
-    <option name="LAST_COMMIT_MESSAGE" value="minor bug fixes. Pharmacy can view prescriptions using their id." />
+    <MESSAGE value="patient first page template." />
+    <MESSAGE value="Patient now can search for doctors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Patient now can search for doctors." />
   </component>
   <component name="WindowStateProjectService">
     <state x="859" y="393" width="258" height="318" key="#Notifications" timestamp="1595348285378">
@@ -266,6 +283,10 @@
     <state x="451" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1591446793197" />
     <state x="408" y="172" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588604780108" />
     <state x="408" y="172" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.814@0.23.1440.814" timestamp="1587087270984" />
+    <state x="726" y="296" width="524" height="512" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595523276970">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="726" y="296" width="524" height="512" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1595523276970" />
     <state x="643" y="77" width="690" height="951" key="#project" timestamp="1588605283463">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -286,29 +307,29 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1793" height="253" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1591447751776" />
-    <state x="247" y="116" width="1482" height="872" key="MergeDialog" timestamp="1595348173425">
+    <state x="247" y="116" width="1482" height="872" key="MergeDialog" timestamp="1595532613045">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="247" y="116" width="1482" height="872" key="MergeDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1595348173425" />
-    <state x="184" y="114" key="SettingsEditor" timestamp="1595416488787">
+    <state x="247" y="116" width="1482" height="872" key="MergeDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1595532613045" />
+    <state x="317" y="114" key="SettingsEditor" timestamp="1595311709280">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
-    <state x="184" y="114" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1595416488787" />
+    <state x="317" y="114" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1595311709280" />
     <state x="475" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1588605309674" />
-    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1595323952594">
+    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1595532695062">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1595323952594" />
-    <state x="399" y="264" key="com.intellij.ide.util.TipDialog" timestamp="1595408069408">
-      <screen x="0" y="23" width="1440" height="816" />
+    <state x="588" y="285" width="800" height="534" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1595532695062" />
+    <state x="399" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1595311688897">
+      <screen x="0" y="23" width="1440" height="813" />
     </state>
-    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.813@0.23.1440.813" timestamp="1595349915473" />
+    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.813@0.23.1440.813" timestamp="1595311688897" />
     <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1588604780108" />
-    <state x="399" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1595408069408" />
-    <state x="758" y="458" width="471" height="188" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595347624325">
+    <state x="399" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1588604780108" />
+    <state x="758" y="458" width="471" height="188" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595532468195">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="758" y="458" width="471" height="188" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1595347624325" />
+    <state x="758" y="458" width="471" height="188" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1595532468195" />
     <state x="385" y="161" width="670" height="676" key="search.everywhere.popup" timestamp="1588604780108" />
     <state x="385" y="161" width="670" height="676" key="search.everywhere.popup/0.23.1440.814@0.23.1440.814" timestamp="1588604780108" />
   </component>
