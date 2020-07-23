@@ -19,7 +19,34 @@ def profile_view(request):
         logout(request)
         return redirect('users:login')
     doctor = Doctor.objects.get(user=request.user)
-    return render(request, 'doctor/profile.html', {'doctor': doctor})
+    next_reservations = Reservation.objects.exclude(patient=None).filter(reservation_date__gte=datetime.date.today(),
+                                                                         doctor=doctor).order_by('reservation_date',
+                                                                                                 'start_time')
+    next_reservation = None
+    current_reservation = None
+    for next_reserve in next_reservations:
+        if next_reserve.reservation_date == datetime.date.today() and next_reserve.start_time < datetime.datetime.now().time() < next_reserve.end_time:
+            current_reservation = next_reserve
+            break
+    for next_reserve in next_reservations:
+        if next_reserve.reservation_date == datetime.date.today() and next_reserve.start_time > datetime.datetime.now().time():
+            next_reservation = next_reserve
+            break
+        elif next_reserve.reservation_date != datetime.date.today():
+            next_reservation = next_reserve
+            break
+    current_reservation_today = False
+    next_reservation_today = False
+    if current_reservation is not None:
+        if current_reservation.reservation_date == datetime.date.today():
+            current_reservation_today = True
+    if next_reservation is not None:
+        if next_reservation.reservation_date == datetime.date.today():
+            next_reservation_today = True
+    return render(request, 'doctor/profile.html',
+                  {'doctor': doctor, 'current_reservation': current_reservation, 'next_reservation': next_reservation   ,
+                   'next_reservation_today': next_reservation_today,
+                   'current_reservation_today': current_reservation_today})
 
 
 def contact_us_view(request):
@@ -96,18 +123,22 @@ def reservation_times(request, day):
         logout(request)
         return redirect('users:login')
     doctor = Doctor.objects.get(user=request.user)
-    reservation = Reservation.objects.filter(reservation_date=datetime.date.today()+datetime.timedelta(days=int(day)), doctor=doctor).order_by('start_time')
+    reservation = Reservation.objects.filter(reservation_date=datetime.date.today() + datetime.timedelta(days=int(day)),
+                                             doctor=doctor).order_by('start_time')
     reservations = list(reservation)
-    reservation_date = datetime.date.today()+datetime.timedelta(days=int(day))
-    jalali_time = JalaliDateTime.to_jalali(year=reservation_date.year, month=reservation_date.month, day=reservation_date.day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None)
+    reservation_date = datetime.date.today() + datetime.timedelta(days=int(day))
+    jalali_time = JalaliDateTime.to_jalali(year=reservation_date.year, month=reservation_date.month,
+                                           day=reservation_date.day, hour=0, minute=0, second=0, microsecond=0,
+                                           tzinfo=None)
     week_days = []
     for i in range(7):
-        week_days.append(week_day.get((i+datetime.date.today().weekday() + 2) % 7))
+        week_days.append(week_day.get((i + datetime.date.today().weekday() + 2) % 7))
     future_dates = []
     for i in range(7):
-        reserve_date = datetime.date.today()+datetime.timedelta(days=i)
-        future_dates.append(JalaliDateTime.to_jalali(year=reserve_date.year, month=reserve_date.month, day=reserve_date.day,
-                                                     hour=0, minute=0, second=0, microsecond=0, tzinfo=None))
+        reserve_date = datetime.date.today() + datetime.timedelta(days=i)
+        future_dates.append(
+            JalaliDateTime.to_jalali(year=reserve_date.year, month=reserve_date.month, day=reserve_date.day,
+                                     hour=0, minute=0, second=0, microsecond=0, tzinfo=None))
     if request.method == 'GET':
         form = reservation_form()
     else:
@@ -116,7 +147,7 @@ def reservation_times(request, day):
             is_valid = True
             if form.cleaned_data['end_time'] < form.cleaned_data['start_time']:
                 msg = '.زمان های وارد شده معتبر نمی‌باشند'
-                is_valid= False
+                is_valid = False
             for reserve in reservations:
                 if form.cleaned_data['end_time'] > reserve.end_time > form.cleaned_data['start_time'] \
                         or form.cleaned_data['end_time'] > reserve.start_time > form.cleaned_data['start_time']:
@@ -125,14 +156,16 @@ def reservation_times(request, day):
 
             if is_valid:
                 new_reserve = Reservation.objects.create(doctor=doctor, start_time=form.cleaned_data['start_time'],
-                                                         end_time=form.cleaned_data['end_time'], reservation_date=reservation_date)
+                                                         end_time=form.cleaned_data['end_time'],
+                                                         reservation_date=reservation_date)
                 reservations.append(new_reserve)
                 return redirect('doctor:reservation', day=day)
         else:
             msg = '.فرمت ورودی درست نمی‌باشد'
 
     return render(request, 'doctor/reservation.html', {'reservations': reservations, 'date': jalali_time,
-                                                       'week_days': week_days, 'reserve_date': future_dates, 'form': form, 'day': day, 'msg': msg})
+                                                       'week_days': week_days, 'reserve_date': future_dates,
+                                                       'form': form, 'day': day, 'msg': msg})
 
 
 def delete_reservation(request, reservation_id):
@@ -142,7 +175,8 @@ def delete_reservation(request, reservation_id):
 
 def reservation_list(request):
     doctor = Doctor.objects.get(user=request.user)
-    reservation_list = list(Reservation.objects.filter(doctor=doctor).exclude(patient=None).order_by('reservation').order_by('start_time'))
+    reservation_list = list(
+        Reservation.objects.filter(doctor=doctor).exclude(patient=None).order_by('reservation').order_by('start_time'))
     return render(request, 'doctor/reservation_list.html', {'reservation_list': reservation_list})
 
 

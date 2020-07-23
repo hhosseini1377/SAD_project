@@ -32,10 +32,9 @@ def profile_view(request):
         elif next_reserve.reservation_date != datetime.date.today():
             next_reservation = next_reserve
             break
-
     return render(request, 'patient/profile.html', {'patient': patient, 'deleted_reservations': deleted_reservations,
                                                     'next_reservation': next_reservation,
-                                                    'current_reservation': current_reservation})
+                                                    'current_reservation': current_reservation,})
 
 
 def disease_records_view(request):
