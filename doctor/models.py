@@ -4,13 +4,20 @@ from patient.models import Patient
 # Create your models here.
 
 
+class DoctorProfession(models.Model):
+    profession = models.CharField(max_length=80, default="عمومی", unique=True)
+
+
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=20, blank=True)
     last_name = models.CharField(max_length=20, blank=True)
     doctor_id = models.IntegerField(primary_key=True)
     date_of_birth = models.DateField()
-    degrees = models.CharField(max_length=75)
+    degreeLevel = models.CharField(max_length=30, choices=[("عمومی", "عمومی"), ("متخصص", "متخصص"), ("فوق تخصص", "فوق تخصص")],
+                                   default="عمومی", blank=False)
+    profession = models.ForeignKey(to=DoctorProfession, on_delete=models.CASCADE, blank=False)
+    gender = models.CharField(max_length=20, choices=[("مرد", "مرد"), ("زن", "زن")], blank=False, default='مرد')
 
 
 class PrescriptionInfo(models.Model):
