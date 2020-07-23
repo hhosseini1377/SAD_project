@@ -59,9 +59,9 @@
         </div>
 
         {% if deleted_reservations %}
-        <div class="row no-gutters">
-            <div class="container bg-light border" style="text-align: right">
-                <div class="container"><h4 style="margin-top: 8px">پیام‌ها</h4></div>
+        <div class="row no-gutters" style="margin-top: 1em">
+            <div class="container-fluid bg-light border rounded" style="text-align: right">
+                <h4 style="margin-top: 1em">پیام‌ها</h4>
                 <hr>
                 {% for reservation in deleted_reservations %}
                     <div class="alert alert-info" role="alert">
@@ -73,7 +73,6 @@
                     </div>
                 </div>
                 {% endfor %}
-
             </div>
         </div>
         {% endif %}
