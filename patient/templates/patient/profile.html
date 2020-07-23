@@ -3,8 +3,8 @@
 {% block content %}
     {% load static %}
     <div class="container-fluid" style="text-align: right; direction: rtl">
-        <div class="row no-gutters">
-            <div class="card bg-transparent col-12" style="text-align: right">
+        <div class="row no-gutters" style="margin: auto; padding: 1em">
+            <div class="card bg-transparent col-12" style="text-align: right; padding: 1em">
                 <div class="row no-gutters">
                    <div class="col-sm-2">
                       <img class="card-img-top" src={% static "patient/avatar.png" %}>
@@ -59,9 +59,9 @@
         </div>
 
         {% if deleted_reservations %}
-        <div class="row no-gutters" style="margin-top: 1em">
-            <div class="container-fluid bg-light border rounded" style="text-align: right">
-                <h4 style="margin-top: 1em">پیام‌ها</h4>
+        <div class="row no-gutters" style="padding: 1em">
+            <div class="container-fluid bg-light border rounded">
+                <h4 style="padding: 0.5em">پیام‌ها</h4>
                 <hr>
                 {% for reservation in deleted_reservations %}
                     <div class="alert alert-info" role="alert">
@@ -76,14 +76,14 @@
             </div>
         </div>
         {% endif %}
-        <div class="row no-gutters" style="margin-top: 1em">
-            <div class="container-fluid bg-light border rounded" style="text-align: right">
+        <div class="row no-gutters" style="padding: 1em">
+            <div class="container-fluid bg-light border rounded" >
                 {% if next_reservation %}
-                <h4 style="margin-top: 1em">زمان رزرو بعدی</h4>
+                    <h4 style="padding: 0.5em">زمان رزرو بعدی</h4>
                 {% elif current_reservation %}
-                <h4 style="margin-top: 8px">زمان رزرو فعلی</h4>
+                    <h4 style="padding: 0.5em">زمان رزرو فعلی</h4>
                 {% else %}
-                    <h4 style="margin-top: 8px">زمان رزرو بعدی</h4>
+                    <h4 style="padding: 0.5em">زمان رزرو بعدی</h4>
                 {% endif %}
                 <hr>
                     <div class="alert alert-info" role="alert">
