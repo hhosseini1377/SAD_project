@@ -1,8 +1,119 @@
 {% extends 'patient/base_layout.html' %}
 
+{% load static %}
 {% block content %}
-    <form method='GET' action="">
-        <input type="text" name="doctor_id" placeholder="doctor_id" />
-        <input type="submit"  value="Search"/>
-    </form>
+    <div class="jumbotron" style="text-align: right; direction: rtl">
+        <h1 class="display-4">جستجوی پزشک</h1>
+        <p class="lead">
+            در این صفحه می‌توانید برای پزشک مورد نظر خود جستجو کنید.
+        </p>
+    </div>
+    <div class="container" style="text-align: right; direction: rtl">
+        {% if msg %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ msg }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+        <form method="post" class="bg-light border border-primary rounded" style="padding: 1em">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-2">
+                    <div class="form-group">
+                        <label for="professionLevelSelect">سطح تخصص</label>
+                            <select class="form-control" id="professionLevelSelect" name="professionLevelSelect">
+                                <option>فرقی نمی‌کند</option>
+                                <option>عمومی</option>
+                                <option>متخصص</option>
+                                <option>فوق تخصص</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label for="professionSelect">زمینه پزشک</label>
+                            <select class="form-control" id="professionSelect" name="professionSelect">
+                                {% for profession in professions %}
+                                    <option>{{ profession }}</option>
+                                {% endfor %}
+                            </select>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-3">
+                                <label for="doctorFirstName">نام پزشک</label>
+                                <input type="text" class="form-control" aria-describedby="doctorFirstNameHelp" id="doctorFirstName" name="doctorFirstName" placeholder="نام پزشک">
+                            </div>
+                            <div class="col-9">
+                                <label for="doctorLastName">نام خانوادگی پزشک</label>
+                                <input type="text" class="form-control" id="doctorLastName" name="doctorLastName" placeholder="نام خانوادگی پزشک">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <small id="doctorFirstNameHelp" class="form-text text-muted" style="margin: auto">اگر می‌خواهید برای تمام پزشک‌های مرتبط با یک زمینه یا با یک سطح تخصص جستجو کنید، این قسمت را خالی بگذارید.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group">
+                        <label for="doctorId">شماره نظام پزشکی</label>
+                        <input type="text" class="form-control" aria-describedby="doctorIdHelp" id="doctorId" name="doctorId" placeholder="شماره نظام پزشکی">
+                        <small id="doctorIdHelp" class="form-text text-muted">اگر می‌خواهید برای تمام پزشک‌های مرتبط با یک زمینه یا با یک سطح تخصص جستجو کنید، این قسمت را خالی بگذارید.</small>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label for="genderSelect">جنسیت</label>
+                            <select class="form-control" id="genderSelect" name="genderSelect">
+                                <option>فرقی نمی‌کند</option>
+                                <option>مرد</option>
+                                <option>زن</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="col-2" style="display: flex">
+                    <button type="submit" class="btn btn-outline-primary" style="margin: auto;">جستجو</button>
+                </div>
+            </div>
+        </form>
+    {% if success == True %}
+        <hr>
+        <div class="row" style="display: flex">
+            {% for doctor in doctors %}
+                <div class="col-sm-4">
+                    <div class="card" style="margin: 0.1em">
+                        {% if doctor.gender == 'مرد' %}
+                            <img class="card-img-top" src='{% static "patient/male.png" %}' alt="تصویر پزشک">
+                        {% else %}
+                            <img class="card-img-top" src='{% static "patient/female.png" %}' alt="تصویر پزشک">
+                        {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">مشخصات پزشک</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">{{ doctor.first_name }} {{ doctor.last_name }}</li>
+                                    {% if doctor.degreeLevel == 'عمومی' %}
+                                        <li class="list-group-item">{{ doctor.degreeLevel }}</li>
+                                    {% else %}
+                                        <li class="list-group-item">{{ doctor.degreeLevel }} {{ doctor.profession.profession }}</li>
+                                    {% endif %}
+                                    <li class="list-group-item">
+                                        شماره نظام پزشکی:
+                                        {{ doctor.doctor_id }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    </div>
+
+
 {% endblock %}
