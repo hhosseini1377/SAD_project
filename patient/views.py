@@ -35,7 +35,7 @@ def profile_view(request):
             break
     return render(request, 'patient/profile.html', {'patient': patient, 'deleted_reservations': deleted_reservations,
                                                     'next_reservation': next_reservation,
-                                                    'current_reservation': current_reservation,})
+                                                    'current_reservation': current_reservation, })
 
 
 def disease_records_view(request):
@@ -200,10 +200,10 @@ def reservation(request, doctor_id, day):
         future_dates.append(
             JalaliDateTime.to_jalali(year=reserve_date.year, month=reserve_date.month, day=reserve_date.day,
                                      hour=0, minute=0, second=0, microsecond=0, tzinfo=None))
-
+    current_time = datetime.datetime.now().time()
     return render(request, 'patient/reservation.html', {'reservations': reservations, 'date': jalali_time,
                                                         'week_days': week_days, 'reserve_date': future_dates,
-                                                        'day': day, 'doctor': doctor, 'patient': patient})
+                                                        'day': day, 'doctor': doctor, 'patient': patient, 'time': current_time})
 
 
 def reserve_time(request, reservation_id, doctor_id):
