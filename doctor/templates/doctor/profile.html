@@ -2,46 +2,48 @@
 
 {% block content %}
     {% load static %}
-    <div class="row no-gutters" style="direction: rtl; text-align: rtl">
-        <div class="row no-gutters" style="display: inline-block">
-            <div class="col-10">
-                <div class="card bg-transparent" style="text-align: right">
-                    <div class="row no-gutters">
-                       <div class="col-3">
-                          <img class="card-img-top" src={% static "patient/avatar.png" %}>
-                       </div>
-                        <div class="col-9">
-                            <div class="card-body">
-                                <h5 class="card-title">پروفایل شما</h5>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="list-group list-group-flush" style="padding-inline-start: 0;">
-                                            <li class="list-group-item">
-                                                نام و نام‌خانوادگی:
-                                                {{ doctor.first_name }} {{ doctor.last_name }}</li>
-                                            <li class="list-group-item">
-                                              شماره پزشکی:
-                                              {{ doctor.doctor_id }}</li>
-                                            <li class="list-group-item">
-                                              تاریخ تولد:
-                                              {{ doctor.date_of_birth }}</li>
-                                            <li class="list-group-item">
-                                              مدرک پزشکی:
-                                              {{ doctor.degrees }}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="row no-gutters" style="direction: rtl; text-align: right">
+        <div class="col-4" style="margin: auto; padding: 1em">
+            <div class="card bg-transparent" style="padding: 1em">
+            <div class="row no-gutters">
+               <div class="col-4">
+                   {% if doctor.gender == 'مرد' %}
+                        <img class="card-img-top" src={% static "patient/male.png" %}>
+                   {% else %}
+                       <img class="card-img-top" src={% static "patient/male.png" %}>
+                   {% endif %}
+               </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h5 class="card-title">پروفایل شما</h5>
+                            <ul class="list-group list-group-flush" style="padding-inline-start: 0;">
+                                <li class="list-group-item">
+                                    نام و نام‌خانوادگی:
+                                    {{ doctor.first_name }} {{ doctor.last_name }}</li>
+                                <li class="list-group-item">
+                                  شماره پزشکی:
+                                  {{ doctor.doctor_id }}</li>
+                                <li class="list-group-item">
+                                  تاریخ تولد:
+                                  {{ doctor.date_of_birth }}</li>
+                                <li class="list-group-item">
+                                  مدرک پزشکی:
+                                  {{ doctor.degreeLevel }}
+                                    {% if doctor.degreeLevel != 'عمومی' %}
+                                        {{ doctor.profession.profession }}
+                                    {% endif %}
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row no-gutters">
-            <div class="container bg-light border" style="text-align: right">
-                <div class="container"><h4 style="margin-top: 8px">زمان ملاقات فعلی</h4></div>
-                <hr>
+        <div class="col-8" style="margin: auto">
+            <div class="row no-gutters" style="padding: 1em">
+                <div class="container border rounded col-12" style="padding: 1em">
+                    <h4 style="margin-top: 1em">زمان ملاقات فعلی</h4>
+                    <hr>
                     <div class="alert alert-info" role="alert">
                         {% if current_reservation %}
                             {% if current_reservation_today %}
@@ -55,15 +57,15 @@
                             </div>
 
                         {% else %}
-                            <p>شما در حال حاضر زمان ملاقاتی ندارید</p>
+                            <p>شما در حال حاضر زمان ملاقاتی ندارید.</p>
                         {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row no-gutters">
-            <div class="container bg-light border" style="text-align: right">
-                <div class="container"><h4 style="margin-top: 8px">زمان ملاقات بعدی</h4></div>
-                <hr>
+            <div class="row no-gutters" style="padding: 1em">
+                <div class="container border rounded col-12" style="padding: 1em">
+                    <h4 style="margin-top: 8px">زمان ملاقات بعدی</h4>
+                    <hr>
                     <div class="alert alert-info" role="alert">
                         {% if next_reservation %}
                             {% if next_reservation_today %}
@@ -74,9 +76,9 @@
                         {% else %}
                             <p>شما زمان ملاقاتی پیش رو ندارید.</p>
                         {% endif %}
-                    <hr>
+                    </div>
                 </div>
             </div>
         </div>
-
+    </div>
 {% endblock %}

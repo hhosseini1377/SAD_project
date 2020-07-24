@@ -95,7 +95,7 @@
                         {% endif %}
                             <div class="card-body">
                                 <h5 class="card-title">مشخصات پزشک</h5>
-                                <ul class="list-group list-group-flush">
+                                <ul class="list-group list-group-flush" style="padding-inline-start: 0">
                                     <li class="list-group-item">{{ doctor.first_name }} {{ doctor.last_name }}</li>
                                     {% if doctor.degreeLevel == 'عمومی' %}
                                         <li class="list-group-item">{{ doctor.degreeLevel }}</li>
@@ -106,7 +106,9 @@
                                         شماره نظام پزشکی:
                                         {{ doctor.doctor_id }}
                                     </li>
+                                    <a href="{% url 'patient:reservation' doctor_id=doctor.doctor_id day=0 %}" class="btn btn-primary">گرفتن وقت</a>
                                 </ul>
+
                             </div>
                         </div>
                 </div>
