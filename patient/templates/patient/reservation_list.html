@@ -2,7 +2,9 @@
 
 {% block content %}
 
-    <h1 style="text-align: right; padding:10px">تاریخچه رزرو‌ها</h1>
+    <div class="jumbotron" style="text-align: right; direction: rtl">
+        <h1 class="display-4">تاریخچه رزرو</h1>
+    </div>
 
     <table class="table table-striped" style="text-align: right">
 <thead>
@@ -14,14 +16,18 @@
   </tr>
 </thead>
   <tbody>
-    {% for reservation in reservation_list %}
-      <tr>
-        <td>{{reservation.end_time.hour}}:{{reservation.end_time.minute}}</td>
-        <td>{{reservation.start_time.hour}}:{{reservation.start_time.minute}}</td>
-        <td>{{reservation.reservation_date.year}}-{{reservation.reservation_date.month}}-{{reservation.reservation_date.day}}</td>
-        <td>{{reservation.doctor.first_name}} {{reservation.doctor.last_name}}</td>
-      </tr>
-    {% endfor %}
+    {% if reservation_list %}
+        {% for reservation in reservation_list %}
+          <tr>
+            <td>{{reservation.end_time.hour}}:{{reservation.end_time.minute}}</td>
+            <td>{{reservation.start_time.hour}}:{{reservation.start_time.minute}}</td>
+            <td>{{reservation.reservation_date.year}}-{{reservation.reservation_date.month}}-{{reservation.reservation_date.day}}</td>
+            <td>{{reservation.doctor.first_name}} {{reservation.doctor.last_name}}</td>
+          </tr>
+        {% endfor %}
+     {% else %}
+    {% endif %}
+
   </tbody>
 
 {% endblock %}
